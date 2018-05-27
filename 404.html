@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="This address does not exist.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-27T14:25:41.000Z">
+<meta property="og:updated_time" content="2018-05-27T14:29:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="404 Not Found...">
 <meta name="twitter:description" content="This address does not exist.">
@@ -45,7 +45,7 @@
 </head>
 
 
-<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center no-sidebar" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -292,46 +292,75 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-repository article-type-list" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">404 Not Found...</h1>
-    <p class="text-muted">I have <span id="repo-count">0</span> projects on Github</p>
-  </header>
-  <div class="article-body">
-    <div class="repo-content">
-      <div class="blankslate">
-        <p>正在加载...</p>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+    <div class="widget">
+      <h3 class="widget-title">Links</h3>
+      <div class="widget-body">
+        <ul class="link-list lh-2x">
+          
+          <li>
+            Github:
+            <a href="https://github.com/jliao011" target="_blank">https://github.com/jliao011</a>
+          </li>
+          
+          <li>
+            Linkedin:
+            <a href="https://www.linkedin.com/in/jiafengliao" target="_blank">https://www.linkedin.com/in/jiafengliao</a>
+          </li>
+          
+        </ul>
       </div>
     </div>
+    
+    
+    
+    <div class="widget">
+      <h3 class="widget-title">Contact</h3>
+      <div class="widget-body">
+        <ul class="skill-list lh-2x">
+          
+          <li class="clearfix">
+            <span>Phone:</span>
+            <span>(214)945-5761</span>
+          </li>
+          
+          <li class="clearfix">
+            <span>Email:</span>
+            <span><a href="mailto:liaojiafeng93@gmail.com">liaojiafeng93@gmail.com</a></span>
+          </li>
+          
+          <li class="clearfix">
+            <span>Address:</span>
+            <span>Dallas, TX, 75252</span>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    
+    
+    
+  </div>
+</aside>
+<main class="main" role="main">
+  <article class="article archives-about article-type-normal" itemscope="">
+  <header class="article-header">
+    <h1 itemprop="title">404 Not Found...</h1>
+    
+    <p class="text-muted">This address does not exist.</p>
+    
+  </header>
+  <div class="article-body">
+    
   </div>
 </article>
 
   
 
 
-
-<!--Github项模版-->
-<script type="text/template" id="list-template">
-  <li class="col-sm-6 col-md-6 col-lg-4">
-    <div class="repo hover-shadow hover-grow">
-      <div class="repo-image geopattern" data-pattern-id="{%=name%}"></div>
-      <h3 class="repo-title"><a href="{%=clone_url%}" target="_blank" rel="external nofollow noopener noreferrer">{%=full_name%}</a></h3>
-      <p class="repo-body">{%=description%}</p>
-      <div class="repo-meta">
-        <span class="meta meta-type pull-left" aria-label="{%=language%} project">{%=language%}</span>
-        <span class="meta meta-star" aria-label="{%=stargazers_count%} stars"><i class="icon icon-star-fill"></i> {%=stargazers_count%}</span>
-        <span class="meta meta-fork" aria-label="{%=forks_count%} forks"><i class="icon icon-code-fork"></i> {%=forks_count%}</span>
-        <span class="meta meta-last-updated" aria-label="最后更新时间：{%=updated_at%}">
-        <i class="icon icon-clock"></i> <time datetime="{%=updated_at%}">{%=updated_at%}</time></span>
-      </div>
-    </div>
-  </li>
-</script>
-<!--获取失败模版-->
-<script type="text/template" id="error-template">
-  <h3>加载失败</h3><p>请刷新或稍后再试...</p>
-</script>
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -361,51 +390,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 <script src="/js/plugin.min.js"></script>
 <script src="/js/application.js"></script>
   
-    
-        <script type="text/javascript">
-var open = function() {
-  var baiduTpl = new Object();
-  var handleTpl = function() {
-    baiduTpl.list = baidu.template("list-template");
-    baiduTpl.error = baidu.template("error-template");
-  };
-
-  var handleGithub = function() {
-    var repoContainer = $('.repo-content');
-    var errorContainer = repoContainer.find(".blankslate");
-    var countContainer = $("#repo-count");
-
-    $.get("https://api.github.com/users/jliao011/repos", function(result) {
-      if (result) {
-        errorContainer.remove();
-        countContainer.text(result.length); //设置项目个数
-        var ul = $("<ul class='repo-list row clearfix'></ul>");
-        for (var i in result) {
-          var repo = result[i];
-          repo.updated_at = repo.updated_at.substring(0, repo.updated_at.lastIndexOf("T"));
-          var html = baiduTpl.list(repo);
-          ul.append(html);
-        }
-        repoContainer.append(ul);
-        $(".geopattern").each(function() {
-          $(this).geopattern($(this).data('pattern-id'));
-        });
-      } else {
-        errorContainer.append(baiduTpl.error());
-      }
-    });
-  };
-
-  return {
-    init: function() {
-      handleTpl();
-      handleGithub();
-    }
-  }
-};
-$(open().init);
-</script>
-
     
     
     
