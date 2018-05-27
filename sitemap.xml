@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jliao011.github.io/2018/05/27/hello-world/</loc>
+    
+    <lastmod>2018-05-27T12:41:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jliao011.github.io/2018/05/28/another-test/</loc>
     
-    <lastmod>2018-05-27T12:15:27.000Z</lastmod>
+    <lastmod>2018-05-27T12:41:09.000Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://jliao011.github.io/about/index.html</loc>
     
     <lastmod>2018-05-27T11:03:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jliao011.github.io/2018/05/27/hello-world/</loc>
-    
-    <lastmod>2018-05-27T10:12:30.000Z</lastmod>
     
   </url>
   
