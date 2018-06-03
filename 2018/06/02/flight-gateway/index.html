@@ -22,16 +22,16 @@
 <meta name="keywords" content="web,deploy,spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flight GateWay Spring Boot App">
-<meta property="og:url" content="https://jliao011.github.io/2018/06/02/flight-gate-way/index.html">
+<meta property="og:url" content="https://jliao011.github.io/2018/06/02/flight-gateway/index.html">
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="Flight GateWayFlight GateWay App url Deploying with GitInstall:1$ brew install heroku/brew/heroku Verify:12$ heroku --versionheroku/7.0.86 darwin-x64 node-v10.1.0 Login:12345$ heroku loginEnter your H">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-02T23:56:57.000Z">
+<meta property="og:updated_time" content="2018-06-03T00:55:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flight GateWay Spring Boot App">
 <meta name="twitter:description" content="Flight GateWayFlight GateWay App url Deploying with GitInstall:1$ brew install heroku/brew/heroku Verify:12$ heroku --versionheroku/7.0.86 darwin-x64 node-v10.1.0 Login:12345$ heroku loginEnter your H">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://jliao011.github.io/2018/06/02/flight-gate-way/index.html">
+  <link rel="canonical" href="https://jliao011.github.io/2018/06/02/flight-gateway/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -260,7 +260,7 @@
                 <a class="category-link" href="/categories/project/">project</a>
               </p>
               <p class="item-title">
-                <a href="/2018/06/02/flight-gate-way/" class="title">Flight GateWay Spring Boot App</a>
+                <a href="/2018/06/02/flight-gateway/" class="title">Flight GateWay Spring Boot App</a>
               </p>
               <p class="item-date">
                 <time datetime="2018-06-02T22:31:15.000Z" itemprop="datePublished">2018-06-02</time>
@@ -328,14 +328,14 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">Catalogue</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Flight-GateWay"><span class="toc-number">1.</span> <span class="toc-text">Flight GateWay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying-with-Git"><span class="toc-number">2.</span> <span class="toc-text">Deploying with Git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Install"><span class="toc-number">2.0.1.</span> <span class="toc-text">Install:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Verify"><span class="toc-number">2.0.2.</span> <span class="toc-text">Verify:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Login"><span class="toc-number">2.0.3.</span> <span class="toc-text">Login:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-app"><span class="toc-number">2.0.4.</span> <span class="toc-text">Create app:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-init-if-no-git-repository"><span class="toc-number">2.0.5.</span> <span class="toc-text">Git init if no git repository:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Check-remote"><span class="toc-number">2.0.6.</span> <span class="toc-text">Check remote:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#For-existing-app-add-remote"><span class="toc-number">2.0.7.</span> <span class="toc-text">For existing app, add remote:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#App-rename"><span class="toc-number">2.0.8.</span> <span class="toc-text">App rename:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Update-git-repository-and-push"><span class="toc-number">2.0.9.</span> <span class="toc-text">Update git repository and push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#App-restart"><span class="toc-number">2.0.10.</span> <span class="toc-text">App restart:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JawsDB-MySQL-add-on"><span class="toc-number">3.</span> <span class="toc-text">JawsDB MySQL add-on</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-the-add-on"><span class="toc-number">3.0.1.</span> <span class="toc-text">Create the add-on:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Get-the-database-url-here"><span class="toc-number">3.0.2.</span> <span class="toc-text">Get the database url here:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Open-the-dashboard"><span class="toc-number">3.0.3.</span> <span class="toc-text">Open the dashboard:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Configure-the-url"><span class="toc-number">3.0.4.</span> <span class="toc-text">Configure the url:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Solve-warning"><span class="toc-number">3.0.5.</span> <span class="toc-text">Solve warning:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Logging-Coralogix-add-on"><span class="toc-number">3.0.6.</span> <span class="toc-text">Logging: Coralogix add-on</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Flight-GateWay"><span class="toc-number">1.</span> <span class="toc-text">Flight GateWay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying-with-Git"><span class="toc-number">2.</span> <span class="toc-text">Deploying with Git</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Install"><span class="toc-number">2.0.1.</span> <span class="toc-text">Install:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Verify"><span class="toc-number">2.0.2.</span> <span class="toc-text">Verify:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Login"><span class="toc-number">2.0.3.</span> <span class="toc-text">Login:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-app"><span class="toc-number">2.0.4.</span> <span class="toc-text">Create app:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Git-init-if-no-git-repository"><span class="toc-number">2.0.5.</span> <span class="toc-text">Git init if no git repository:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Check-remote"><span class="toc-number">2.0.6.</span> <span class="toc-text">Check remote:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#For-existing-app-add-remote"><span class="toc-number">2.0.7.</span> <span class="toc-text">For existing app, add remote:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#App-rename"><span class="toc-number">2.0.8.</span> <span class="toc-text">App rename:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Change-Git-remote"><span class="toc-number">2.0.9.</span> <span class="toc-text">Change Git remote:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Update-git-repository-and-push"><span class="toc-number">2.0.10.</span> <span class="toc-text">Update git repository and push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#App-restart"><span class="toc-number">2.0.11.</span> <span class="toc-text">App restart:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JawsDB-MySQL-add-on"><span class="toc-number">3.</span> <span class="toc-text">JawsDB MySQL add-on</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-the-add-on"><span class="toc-number">3.0.1.</span> <span class="toc-text">Create the add-on:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Get-the-database-url-here"><span class="toc-number">3.0.2.</span> <span class="toc-text">Get the database url here:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Open-the-dashboard"><span class="toc-number">3.0.3.</span> <span class="toc-text">Open the dashboard:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Configure-the-url"><span class="toc-number">3.0.4.</span> <span class="toc-text">Configure the url:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Solve-warning"><span class="toc-number">3.0.5.</span> <span class="toc-text">Solve warning:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Logging-Coralogix-add-on"><span class="toc-number">3.0.6.</span> <span class="toc-text">Logging: Coralogix add-on</span></a></li></ol></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-flight-gate-way" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-flight-gateway" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
@@ -350,7 +350,7 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/02/flight-gate-way/" class="article-date">
+	<a href="/2018/06/02/flight-gateway/" class="article-date">
 	  <time datetime="2018-06-02T22:31:15.000Z" itemprop="datePublished">2018-06-02</time>
 	</a>
 </span>
@@ -369,7 +369,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/02/flight-gate-way/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/02/flight-gateway/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
@@ -384,9 +384,11 @@
 <h4 id="Check-remote"><a href="#Check-remote" class="headerlink" title="Check remote:"></a>Check remote:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">heroku	https://git.heroku.com/flightgateway.git (fetch)</span><br><span class="line">heroku	https://git.heroku.com/flightgateway.git (push)</span><br><span class="line">origin	https://github.com/jliao011/gate-way-app.git (fetch)</span><br><span class="line">origin	https://github.com/jliao011/gate-way-app.git (push)</span><br></pre></td></tr></table></figure>
 <h4 id="For-existing-app-add-remote"><a href="#For-existing-app-add-remote" class="headerlink" title="For existing app, add remote:"></a>For existing app, add remote:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku git:remote -a [app name]</span><br></pre></td></tr></table></figure>
 <h4 id="App-rename"><a href="#App-rename" class="headerlink" title="App rename:"></a>App rename:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm heroku</span><br><span class="line">$ heroku git:remote -a newname</span><br><span class="line">or</span><br><span class="line">$ heroku apps:rename newname</span><br></pre></td></tr></table></figure>
+<h4 id="Change-Git-remote"><a href="#Change-Git-remote" class="headerlink" title="Change Git remote:"></a>Change Git remote:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote <span class="built_in">set</span>-url origin https://github.com/USERNAME/REPOSITORY.git</span><br></pre></td></tr></table></figure>
 <h4 id="Update-git-repository-and-push"><a href="#Update-git-repository-and-push" class="headerlink" title="Update git repository and push"></a>Update git repository and push</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit</span><br><span class="line">$ git push</span><br><span class="line">to git repository</span><br><span class="line">$ git push heroku</span><br><span class="line">to heroku repository</span><br></pre></td></tr></table></figure>
 <p>When push to heroku, it will detect the app and build automatically.</p>
 <p>Then use <code>$ heroku open</code> to open the app url after the database configuration.</p>
+<p>If your app is linked with your Github url, once updates are pushed to the origin url, the heroku git repository will be updated automatically, then the app will restart.</p>
 <h4 id="App-restart"><a href="#App-restart" class="headerlink" title="App restart:"></a>App restart:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ heroku restart -a [app name]</span><br></pre></td></tr></table></figure>
 <h2 id="JawsDB-MySQL-add-on"><a href="#JawsDB-MySQL-add-on" class="headerlink" title="JawsDB MySQL add-on"></a>JawsDB MySQL add-on</h2><p><strong>There is no need to modify spring boot app configurations like this:</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.driver-class-name=com.mysql.jdbc.Driver</span><br><span class="line">spring.datasource.url=$&#123;JDBC_DATABASE_URL&#125;</span><br><span class="line">spring.datasource.username=$&#123;JDBC_DATABASE_USERNAME&#125;</span><br><span class="line">spring.datasource.password=$&#123;JDBC_DATABASE_PASSWORD&#125;</span><br></pre></td></tr></table></figure>
@@ -412,7 +414,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://jliao011.github.io/2018/06/02/flight-gate-way/" title="Flight GateWay Spring Boot App" target="_blank" rel="external">https://jliao011.github.io/2018/06/02/flight-gate-way/</a>
+      <a href="https://jliao011.github.io/2018/06/02/flight-gateway/" title="Flight GateWay Spring Boot App" target="_blank" rel="external">https://jliao011.github.io/2018/06/02/flight-gateway/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -556,9 +558,9 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     <script defer>
     var disqus_config = function () {
         
-            this.page.url = 'https://jliao011.github.io/2018/06/02/flight-gate-way/';
+            this.page.url = 'https://jliao011.github.io/2018/06/02/flight-gateway/';
         
-        this.page.identifier = 'flight-gate-way';
+        this.page.identifier = 'flight-gateway';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
