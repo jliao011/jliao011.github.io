@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jliao011.github.io/2018/06/02/flight-gateway/</loc>
+    
+    <lastmod>2018-06-05T00:55:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jliao011.github.io/2018/06/04/software-ilities/</loc>
     
     <lastmod>2018-06-04T21:17:15.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://jliao011.github.io/2018/06/04/restful-web-service/</loc>
     
     <lastmod>2018-06-04T09:32:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jliao011.github.io/2018/06/02/flight-gateway/</loc>
-    
-    <lastmod>2018-06-04T09:04:19.000Z</lastmod>
     
   </url>
   
