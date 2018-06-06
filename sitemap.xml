@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jliao011.github.io/about/index.html</loc>
+    
+    <lastmod>2018-06-06T03:37:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jliao011.github.io/2018/06/02/flight-gateway/</loc>
     
     <lastmod>2018-06-05T00:55:52.000Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://jliao011.github.io//404.html</loc>
     
     <lastmod>2018-05-27T14:29:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jliao011.github.io/about/index.html</loc>
-    
-    <lastmod>2018-05-27T14:00:43.000Z</lastmod>
     
   </url>
   
