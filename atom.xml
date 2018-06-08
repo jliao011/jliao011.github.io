@@ -88,9 +88,9 @@
       <category term="project" scheme="https://jliao011.github.io/categories/project/"/>
     
     
-      <category term="hexo" scheme="https://jliao011.github.io/tags/hexo/"/>
-    
       <category term="deploy" scheme="https://jliao011.github.io/tags/deploy/"/>
+    
+      <category term="hexo" scheme="https://jliao011.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -115,37 +115,11 @@
       <category term="project" scheme="https://jliao011.github.io/categories/project/"/>
     
     
-      <category term="deploy" scheme="https://jliao011.github.io/tags/deploy/"/>
-    
       <category term="web" scheme="https://jliao011.github.io/tags/web/"/>
     
+      <category term="deploy" scheme="https://jliao011.github.io/tags/deploy/"/>
+    
       <category term="spring" scheme="https://jliao011.github.io/tags/spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Another test</title>
-    <link href="https://jliao011.github.io/2018/05/28/another-test/"/>
-    <id>https://jliao011.github.io/2018/05/28/another-test/</id>
-    <published>2018-05-28T12:31:15.000Z</published>
-    <updated>2018-05-27T12:41:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>content</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test</span><br></pre></td></tr></table></figure><p><code>aaaaa</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;content&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="https://jliao011.github.io/categories/leetcode/"/>
-    
-    
-      <category term="testa" scheme="https://jliao011.github.io/tags/testa/"/>
     
   </entry>
   
