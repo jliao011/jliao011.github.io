@@ -25,21 +25,26 @@
   <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
   <meta http-equiv="window-target" content="_top" />
   
-  <title>The 7 Software “-ilities” You Need To Know | Jiafeng&#39;s Blog</title>
-  <meta name="description" content="Original Article: The 7 Software “-ilities” You Need To Know In the world of software architecture there are many “-ilities” you must take into consideration with every project. Prioritizing them is n">
-<meta name="keywords" content="software">
+  <title>Sorting Algorithms | Jiafeng&#39;s Blog</title>
+  <meta name="description" content="ImplementationsSelection Sort generally performs worse than the similar insertion sort.  The algorithm divides the input list into two parts: the sublist of items already sorted, which is built up fro">
+<meta name="keywords" content="sort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The 7 Software “-ilities” You Need To Know">
-<meta property="og:url" content="https://jliao011.github.io/2018/06/04/software-ilities/index.html">
+<meta property="og:title" content="Sorting Algorithms">
+<meta property="og:url" content="https://jliao011.github.io/2018/06/23/sorting/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Original Article: The 7 Software “-ilities” You Need To Know In the world of software architecture there are many “-ilities” you must take into consideration with every project. Prioritizing them is n">
+<meta property="og:description" content="ImplementationsSelection Sort generally performs worse than the similar insertion sort.  The algorithm divides the input list into two parts: the sublist of items already sorted, which is built up fro">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-04T21:17:15.000Z">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif">
+<meta property="og:updated_time" content="2018-06-23T09:25:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The 7 Software “-ilities” You Need To Know">
-<meta name="twitter:description" content="Original Article: The 7 Software “-ilities” You Need To Know In the world of software architecture there are many “-ilities” you must take into consideration with every project. Prioritizing them is n">
+<meta name="twitter:title" content="Sorting Algorithms">
+<meta name="twitter:description" content="ImplementationsSelection Sort generally performs worse than the similar insertion sort.  The algorithm divides the input list into two parts: the sublist of items already sorted, which is built up fro">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://jliao011.github.io/2018/06/04/software-ilities/index.html">
+  <link rel="canonical" href="https://jliao011.github.io/2018/06/23/sorting/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -340,21 +345,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">Catalogue</h3>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Usability"><span class="toc-number">1.</span> <span class="toc-text">1. Usability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Maintainability-or-Flexibility-Testibility"><span class="toc-number">2.</span> <span class="toc-text">2. Maintainability ( or Flexibility / Testibility)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Scalability"><span class="toc-number">3.</span> <span class="toc-text">3. Scalability</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Availability-or-Reliability"><span class="toc-number">4.</span> <span class="toc-text">4. Availability (or Reliability)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Extensibility"><span class="toc-number">5.</span> <span class="toc-text">5. Extensibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Security"><span class="toc-number">6.</span> <span class="toc-text">6. Security</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Portability"><span class="toc-number">7.</span> <span class="toc-text">7. Portability</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Implementations"><span class="toc-number">1.</span> <span class="toc-text">Implementations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Selection-Sort"><span class="toc-number">1.1.</span> <span class="toc-text">Selection Sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Insertion-Sort"><span class="toc-number">1.2.</span> <span class="toc-text">Insertion Sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bubble-Sort"><span class="toc-number">1.3.</span> <span class="toc-text">Bubble Sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Merge-Sort"><span class="toc-number">1.4.</span> <span class="toc-text">Merge Sort</span></a></li></ol></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-software-ilities" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-sorting" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      The 7 Software “-ilities” You Need To Know
+      Sorting Algorithms
     </h1>
   
 
@@ -362,78 +367,45 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/06/04/software-ilities/" class="article-date">
-	  <time datetime="2018-06-04T09:31:54.000Z" itemprop="datePublished">2018-06-04</time>
+	<a href="/2018/06/23/sorting/" class="article-date">
+	  <time datetime="2018-06-23T08:02:38.000Z" itemprop="datePublished">2018-06-23</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/foundation/">foundation</a>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/software/">software</a>
+	<a class="article-tag-link" href="/tags/sort/">sort</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/04/software-ilities/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/23/sorting/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <p>Original Article: <a href="http://codesqueeze.com/the-7-software-ilities-you-need-to-know/" target="_blank" rel="noopener">The 7 Software “-ilities” You Need To Know</a></p>
-<p>In the world of software architecture there are many “-ilities” you must take into consideration with every project. Prioritizing them is necessary because the client will optimistically ask that you do all of them. To help you out, here is a quick list outlining my top 7 default “-ilities” in the order that I prioritize them:</p>
-<h3 id="1-Usability"><a href="#1-Usability" class="headerlink" title="1. Usability"></a>1. Usability</h3><p>Software usability can be described as how effectively end users can use, learn, or control the system. Some questions to ask yourself to determine usability might be:</p>
-<ul>
-<li>Is there a UI metaphor that I am using to help users adapt? (for example, the ‘desktop’ is a metaphor)</li>
-<li>Are the most common operations streamlined to be performed quickly?</li>
-<li>Can new users quickly adapt to the software without help? (is it intuitive?)</li>
-<li>Do validation and error messages make sense?</li>
-</ul>
-<h3 id="2-Maintainability-or-Flexibility-Testibility"><a href="#2-Maintainability-or-Flexibility-Testibility" class="headerlink" title="2. Maintainability ( or Flexibility / Testibility)"></a>2. Maintainability ( or Flexibility / Testibility)</h3><p>The definition of maintainability [for me] implies how brittle the code is to change. As a result, I tie the terms flexibility and testability into the overall maintainability of a project.</p>
-<ul>
-<li>Does the entire team understand the code base or does knowledge islands exist?</li>
-<li>Is the code throughly regression tested?</li>
-<li>Can modifications to the project be done in a timely manner?</li>
-</ul>
-<h3 id="3-Scalability"><a href="#3-Scalability" class="headerlink" title="3. Scalability"></a>3. Scalability</h3><p>Scalability is the ability for your program to gracefully meet the demand of stress caused by increased usage. In short, ensuring your program doesn’t slow or bust when pounded by more users than you originally anticipated.</p>
-<ul>
-<li>What is your current peak load that you can handle?</li>
-<li>How many database records can create until critical operations slow down?</li>
-<li>Is the primary scaling strategy to “scale up” or to “scale out” — that is, to upgrade the nodes in a fixed topology, or to add nodes?</li>
-</ul>
-<h3 id="4-Availability-or-Reliability"><a href="#4-Availability-or-Reliability" class="headerlink" title="4. Availability (or Reliability)"></a>4. Availability (or Reliability)</h3><p>How long the system is up and running and the <a href="http://en.wikipedia.org/wiki/MTBF" target="_blank" rel="noopener">Mean Time Between Failure (MTBF)</a> is known as the availability of a program.</p>
-<ul>
-<li>How long does the system need to run without failure?</li>
-<li>What is the acceptable length of time for the system to be down?</li>
-<li>Can down times be scheduled?</li>
-</ul>
-<h3 id="5-Extensibility"><a href="#5-Extensibility" class="headerlink" title="5. Extensibility"></a>5. Extensibility</h3><p>Are there points in the system where changes can be made with (or without) program changes? </p>
-<ul>
-<li>Can the database schema flex to accommodate change?</li>
-<li>Does the system allow Inversion of Control (IoC)?</li>
-<li>Can end users extend the system (scripts, user defined fields, etc)?</li>
-<li>Can 3rd party developers leverage your system?</li>
-</ul>
-<h3 id="6-Security"><a href="#6-Security" class="headerlink" title="6. Security"></a>6. Security</h3><p>I shouldn’t need to go into this one but to be thorough I like this <a href="http://www.softwarearchitectures.com/go/Discipline/DesigningArchitecture/QualityAttributes/tabid/64/Default.aspx" target="_blank" rel="noopener">definition of security</a>: the measure of system’s ability to resist unauthorized attempts at usage or behavior modification, while still providing service to legitimate users.</p>
-<ul>
-<li>Does the system need user or role based security?</li>
-<li>Does code access security need to occur?</li>
-<li>What operations need to be secured?</li>
-<li>How will users be administered?</li>
-</ul>
-<h3 id="7-Portability"><a href="#7-Portability" class="headerlink" title="7. Portability"></a>7. Portability</h3><p>Portability is the ability for your application to run on numerous platforms. This is can include actual application hosting, viewing, or data portability.</p>
-<ul>
-<li>Can the data be migrated to other systems?</li>
-<li>For web applications, which browsers does your web app support?</li>
-<li>Which operating systems does your program run on?</li>
-</ul>
+        <h2 id="Implementations"><a href="#Implementations" class="headerlink" title="Implementations"></a>Implementations</h2><h3 id="Selection-Sort"><a href="#Selection-Sort" class="headerlink" title="Selection Sort"></a>Selection Sort</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif" alt="img"></p>
+<p>generally performs worse than the similar <a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank" rel="noopener">insertion sort</a>. </p>
+<p>The algorithm divides the input list into two parts: the sublist of items already sorted, which is built up from left to right at the front (left) of the list, and the sublist of items remaining to be sorted that occupy the rest of the list. Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted element (putting it in sorted order), and moving the sublist boundaries one element to the right.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] selectionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">	<span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; ++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> minIdx = i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; array.length; ++j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (array[j] &lt; array[minIdx])</span><br><span class="line">				minIdx = j;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (minIdx != i) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = array[i];</span><br><span class="line">			array[i] = array[minIdx];</span><br><span class="line">			array[minIdx] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif" alt="img"></p>
+<p>Insertion sort <a href="https://en.wikipedia.org/wiki/Iteration" target="_blank" rel="noopener">iterates</a>, consuming one input element each repetition, and growing a sorted output list. At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain.</p>
+<p><strong>Array based</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] insertionSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">	<span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (curr &lt; array.length) &#123;</span><br><span class="line">		<span class="keyword">int</span> idx = curr;</span><br><span class="line">		<span class="keyword">while</span> (idx &gt; <span class="number">0</span> &amp;&amp; array[idx] &lt; array[idx - <span class="number">1</span>]) &#123;</span><br><span class="line">			<span class="keyword">int</span> temp = array[idx];</span><br><span class="line">			array[idx] = array[idx - <span class="number">1</span>];</span><br><span class="line">			array[idx - <span class="number">1</span>] = temp;</span><br><span class="line">			idx--;</span><br><span class="line">		&#125;</span><br><span class="line">		curr++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>LinkedList based</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">insertionSortList</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">    ListNode dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">    ListNode prev = dummy, curr = head, next = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">while</span>(curr != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="comment">// save curr next first</span></span><br><span class="line">        next = curr.next;</span><br><span class="line">        <span class="keyword">while</span>(prev.next != <span class="keyword">null</span> &amp;&amp; prev.next.val &lt; curr.val)</span><br><span class="line">            prev = prev.next;</span><br><span class="line">        <span class="comment">// insert curr after prev</span></span><br><span class="line">        curr.next = prev.next;</span><br><span class="line">        prev.next = curr;</span><br><span class="line">        curr = next;</span><br><span class="line">        <span class="comment">// reset prev</span></span><br><span class="line">        prev = dummy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dummy.next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Bubble-Sort"><a href="#Bubble-Sort" class="headerlink" title="Bubble Sort"></a>Bubble Sort</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif" alt="img"></p>
+<p><a href="https://en.wikipedia.org/wiki/Insertion_sort" target="_blank" rel="noopener">insertion sort</a>, generally run faster than bubble sort.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] bubbleSort(<span class="keyword">int</span>[] array) &#123;</span><br><span class="line">	<span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">	<span class="comment">// total n-1 loop, each loop find a curr largest</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - <span class="number">1</span> - i; ++j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</span><br><span class="line">				<span class="keyword">int</span> temp = array[j];</span><br><span class="line">				array[j] = array[j + <span class="number">1</span>];</span><br><span class="line">				array[j + <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif" alt="img"></p>
 
       
     </div>
@@ -443,7 +415,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://jliao011.github.io/2018/06/04/software-ilities/" title="The 7 Software “-ilities” You Need To Know" target="_blank" rel="external">https://jliao011.github.io/2018/06/04/software-ilities/</a>
+      <a href="https://jliao011.github.io/2018/06/23/sorting/" title="Sorting Algorithms" target="_blank" rel="external">https://jliao011.github.io/2018/06/23/sorting/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -493,13 +465,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2018/06/12/trie/" title="Implementation of Trie"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2018/06/04/restful-web-service/" title="Restful Web Service Related"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2018/06/12/trie/" title="Implementation of Trie"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -587,9 +555,9 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     <script defer>
     var disqus_config = function () {
         
-            this.page.url = 'https://jliao011.github.io/2018/06/04/software-ilities/';
+            this.page.url = 'https://jliao011.github.io/2018/06/23/sorting/';
         
-        this.page.identifier = 'software-ilities';
+        this.page.identifier = 'sorting';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
