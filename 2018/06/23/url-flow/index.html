@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119871741-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119871741-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> <!-- minimal-ui -->
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  <title>What happens when you type an URL in the browser and press enter? | Jiafeng&#39;s Blog</title>
+  <meta name="description" content="1. You type maps.google.com into the address bar of your browser.2. The browser checks the cache for a DNS record to find the corresponding IP address of maps.google.com.DNS(Domain Name System) is a d">
+<meta name="keywords" content="web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What happens when you type an URL in the browser and press enter?">
+<meta property="og:url" content="https://jliao011.github.io/2018/06/23/url-flow/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="1. You type maps.google.com into the address bar of your browser.2. The browser checks the cache for a DNS record to find the corresponding IP address of maps.google.com.DNS(Domain Name System) is a d">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*udK6jZ3PjlhjqW8U.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*SyxEqHOBZElX5laf.png">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/0*ifRt45gihG_AwR3Z.png">
+<meta property="og:updated_time" content="2018-06-24T01:18:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What happens when you type an URL in the browser and press enter?">
+<meta name="twitter:description" content="1. You type maps.google.com into the address bar of your browser.2. The browser checks the cache for a DNS record to find the corresponding IP address of maps.google.com.DNS(Domain Name System) is a d">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/0*udK6jZ3PjlhjqW8U.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://jliao011.github.io/2018/06/23/url-flow/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+
+  
+  <meta name="google-site-verification" content="Q8ZJjFeuFLdQt5A3JEUX1a0PKcngzJNKeU2D5Y24yXA" />
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Jiafeng Liao</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">New CS Grad</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dallas, TX</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Welcome to my blog!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/foundation/">foundation</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deploy/">deploy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rest/">rest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">software</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trie/">trie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/data-structure/" style="font-size: 13px;">data structure</a> <a href="/tags/deploy/" style="font-size: 13.5px;">deploy</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/rest/" style="font-size: 13px;">rest</a> <a href="/tags/software/" style="font-size: 13px;">software</a> <a href="/tags/sort/" style="font-size: 13px;">sort</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/trie/" style="font-size: 13px;">trie</a> <a href="/tags/web/" style="font-size: 14px;">web</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/java-stack-vs-heap/" class="title">Java Stack vs Heap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:29:46.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/url-flow/" class="title">What happens when you type an URL in the browser and press enter?</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:13:20.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/sorting/" class="title">Sorting Algorithms</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-23T08:02:38.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/12/trie/" class="title">Implementation of Trie</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-12T07:27:22.000Z" itemprop="datePublished">2018-06-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/04/software-ilities/" class="title">The 7 Software “-ilities” You Need To Know</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-04T09:31:54.000Z" itemprop="datePublished">2018-06-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-You-type-maps-google-com-into-the-address-bar-of-your-browser"><span class="toc-number">1.</span> <span class="toc-text">1. You type maps.google.com into the address bar of your browser.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-The-browser-checks-the-cache-for-a-DNS-record-to-find-the-corresponding-IP-address-of-maps-google-com"><span class="toc-number">2.</span> <span class="toc-text">2. The browser checks the cache for a DNS record to find the corresponding IP address of maps.google.com.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-If-the-requested-URL-is-not-in-the-cache-ISP’s-DNS-server-initiates-a-DNS-query-to-find-the-IP-address-of-the-server-that-hosts-maps-google-com"><span class="toc-number">3.</span> <span class="toc-text">3. If the requested URL is not in the cache, ISP’s DNS server initiates a DNS query to find the IP address of the server that hosts maps.google.com.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Browser-initiates-a-TCP-connection-with-the-server"><span class="toc-number">4.</span> <span class="toc-text">4. Browser initiates a TCP connection with the server.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-The-browser-sends-an-HTTP-request-to-the-web-server"><span class="toc-number">5.</span> <span class="toc-text">5. The browser sends an HTTP request to the web server.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-The-server-handles-the-request-and-sends-back-a-response"><span class="toc-number">6.</span> <span class="toc-text">6. The server handles the request and sends back a response.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-The-server-sends-out-an-HTTP-response"><span class="toc-number">7.</span> <span class="toc-text">7. The server sends out an HTTP response.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-The-browser-displays-the-HTML-content-for-HTML-responses-which-is-the-most-common"><span class="toc-number">8.</span> <span class="toc-text">8. The browser displays the HTML content (for HTML responses which is the most common).</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-Client-interaction-with-server"><span class="toc-number">9.</span> <span class="toc-text">9. Client interaction with server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-AJAX-queries"><span class="toc-number">10.</span> <span class="toc-text">10. AJAX queries</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#References"><span class="toc-number">11.</span> <span class="toc-text">References:</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-url-flow" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      What happens when you type an URL in the browser and press enter?
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/06/23/url-flow/" class="article-date">
+	  <time datetime="2018-06-24T01:13:20.000Z" itemprop="datePublished">2018-06-23</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/foundation/">foundation</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/web/">web</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/23/url-flow/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h4 id="1-You-type-maps-google-com-into-the-address-bar-of-your-browser"><a href="#1-You-type-maps-google-com-into-the-address-bar-of-your-browser" class="headerlink" title="1. You type maps.google.com into the address bar of your browser."></a>1. You type maps.google.com into the address bar of your browser.</h4><h4 id="2-The-browser-checks-the-cache-for-a-DNS-record-to-find-the-corresponding-IP-address-of-maps-google-com"><a href="#2-The-browser-checks-the-cache-for-a-DNS-record-to-find-the-corresponding-IP-address-of-maps-google-com" class="headerlink" title="2. The browser checks the cache for a DNS record to find the corresponding IP address of maps.google.com."></a>2. The browser checks the cache for a DNS record to find the corresponding IP address of maps.google.com.</h4><p>DNS(Domain Name System) is a database that maintains the name of the website (URL) and the particular IP address it links to. Every single URL on the internet has a unique IP address assigned to it. The IP address belongs to the computer which hosts the server of the website we are requesting to access. DNS is a list of URLs and their IP addresses just like how a phone book is a list of names and their corresponding phone numbers.</p>
+<p>The main purpose of DNS is human-friendly navigation. You can easily access a website by typing the correct IP address for it on your browser but imagine having to remember different sets of numbers for all the websites we regularly access? Therefore, it is easier to remember the name of the website using an URL and let DNS do the work for us with mapping it to the correct IP.</p>
+<p>In order to find the DNS record, the browser checks four caches.</p>
+<p>● First, it checks the browser cache. The browser maintains a repository of DNS records for a fixed duration for websites you have previously visited. So, it is the first place to run a DNS query.</p>
+<p>● Second, the browser checks the OS cache. If it is not found in the browser cache, the browser would make a system call (i.e. <em>gethostname</em> on Windows) to your underlying computer OS to fetch the record since the OS also maintains a cache of DNS records.</p>
+<p>● Third, it checks the router cache. If it’s not found on your computer, the browser would communicate with the router that maintains its’ own cache of DNS records.</p>
+<p>● Fourth, it checks the ISP(Internet Service Provider) cache. If all steps fail, the browser would move on to the ISP. Your ISP maintains its’ own DNS server which includes a cache of DNS records which the browser would check with the last hope of finding your requested URL.</p>
+<h4 id="3-If-the-requested-URL-is-not-in-the-cache-ISP’s-DNS-server-initiates-a-DNS-query-to-find-the-IP-address-of-the-server-that-hosts-maps-google-com"><a href="#3-If-the-requested-URL-is-not-in-the-cache-ISP’s-DNS-server-initiates-a-DNS-query-to-find-the-IP-address-of-the-server-that-hosts-maps-google-com" class="headerlink" title="3. If the requested URL is not in the cache, ISP’s DNS server initiates a DNS query to find the IP address of the server that hosts maps.google.com."></a>3. If the requested URL is not in the cache, ISP’s DNS server initiates a DNS query to find the IP address of the server that hosts maps.google.com.</h4><p>As mentioned earlier, in order for my computer to connect with the server that hosts maps.google.com, I need the IP address of maps.google.com. The purpose of a DNS query is to search multiple DNS servers on the internet until it finds the correct IP address for the website. This type of search is called a recursive search since the search will continue repeatedly from DNS server to DNS server until it either finds the IP address we need or returns an error response saying it was unable to find it.</p>
+<p>In this situation, we would call the ISP’s DNS server a DNS recursor whose responsibility is to find the proper IP address of the intended domain name by asking other DNS servers on the internet for an answer. The other DNS servers are called name servers since they perform a DNS search based on the domain architecture of the website domain name.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*udK6jZ3PjlhjqW8U.png" alt="img"></p>
+<p>Many website URLs we encounter today contain a third-level domain, a second-level domain, and a top-level domain. Each of these levels contains their own name server which is queried during the DNS lookup process.</p>
+<p>For maps.google.com, first, the DNS recursor will contact the root name server. The root name server will redirect it to <strong>.com</strong> domain name server. <strong>.com</strong> name server will redirect it to <strong>google.com</strong> name server. <strong>google.com</strong> name server will find the matching IP address for maps.google.com in its’ DNS records and return it to your DNS recursor which will send it back to your browser.</p>
+<p>These requests are sent using small data packets which contain information such as the content of the request and the IP address it is destined for (IP address of the DNS recursor). These packets travel through multiple networking equipment between the client and the server before it reaches the correct DNS server. This equipment use routing tables to figure out which way is the fastest possible way for the packet to reach its’ destination. If these packets get lost you’ll get a request failed error. Otherwise, they will reach the correct DNS server, grab the correct IP address, and come back to your browser.</p>
+<h4 id="4-Browser-initiates-a-TCP-connection-with-the-server"><a href="#4-Browser-initiates-a-TCP-connection-with-the-server" class="headerlink" title="4. Browser initiates a TCP connection with the server."></a>4. Browser initiates a TCP connection with the server.</h4><p>Once the browser receives the correct IP address it will build a connection with the server that matches IP address to transfer information. Browsers use internet protocols to build such connections. There are a number of different internet protocols which can be used but TCP is the most common protocol used for any type of HTTP request.</p>
+<p>In order to transfer data packets between your computer(client) and the server, it is important to have a TCP connection established. This connection is established using a process called the TCP/IP three-way handshake. This is a three step process where the client and the server exchange SYN(synchronize) and ACK(acknowledge) messages to establish a connection.</p>
+<ol>
+<li>Client machine sends a SYN packet to the server over the internet asking if it is open for new connections.</li>
+<li>If the server has open ports that can accept and initiate new connections, it’ll respond with an ACKnowledgment of the SYN packet using a SYN/ACK packet.</li>
+<li>The client will receive the SYN/ACK packet from the server and will acknowledge it by sending an ACK packet.</li>
+</ol>
+<p>Then a TCP connection is established for data transmission!</p>
+<h4 id="5-The-browser-sends-an-HTTP-request-to-the-web-server"><a href="#5-The-browser-sends-an-HTTP-request-to-the-web-server" class="headerlink" title="5. The browser sends an HTTP request to the web server."></a>5. The browser sends an HTTP request to the web server.</h4><p>Once the TCP connection is established, it is time to start transferring data! The browser will send a GET request asking for maps.google.com web page. If you’re entering credentials or submitting a form this could be a POST request. This request will also contain additional information such as browser identification (<em>User-Agent</em> header), types of requests that it will accept (<em>Accept</em>header), and connection headers asking it to keep the TCP connection alive for additional requests. It will also pass information taken from cookies the browser has in store for this domain.</p>
+<p>Sample GET request (Headers are highlighted):</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*SyxEqHOBZElX5laf.png" alt="img"></p>
+<h4 id="6-The-server-handles-the-request-and-sends-back-a-response"><a href="#6-The-server-handles-the-request-and-sends-back-a-response" class="headerlink" title="6. The server handles the request and sends back a response."></a>6. The server handles the request and sends back a response.</h4><p>The server contains a web server (i.e Apache, IIS) which receives the request from the browser and passes it to a request handler to read and generate a response. The request handler is a program (written in ASP.NET, PHP, Ruby, etc.) that reads the request, its’ headers, and cookies to check what is being requested and also update the information on the server if needed. Then it will assemble a response in a particular format (JSON, XML, HTML).</p>
+<h4 id="7-The-server-sends-out-an-HTTP-response"><a href="#7-The-server-sends-out-an-HTTP-response" class="headerlink" title="7. The server sends out an HTTP response."></a>7. The server sends out an HTTP response.</h4><p>The server response contains the web page you requested as well as the status code, compression type (<em>Content-Encoding)</em>, how to cache the page (<em>Cache-Control</em>), any cookies to set, privacy information, etc.</p>
+<p>Example HTTP server response:</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*ifRt45gihG_AwR3Z.png" alt="img"></p>
+<p>If you look at the above response the first line shows a status code. This is quite important as it tells us the status of the response. There are five types of statuses detailed using a numerical code.</p>
+<p>● 1xx indicates an informational message only</p>
+<p>● 2xx indicates success of some kind</p>
+<p>● 3xx redirects the client to another URL</p>
+<p>● 4xx indicates an error on the client’s part</p>
+<p>● 5xx indicates an error on the server’s part</p>
+<p>So, if you encountered an error you can take a look at the HTTP response to check what type of status code you have received.</p>
+<h4 id="8-The-browser-displays-the-HTML-content-for-HTML-responses-which-is-the-most-common"><a href="#8-The-browser-displays-the-HTML-content-for-HTML-responses-which-is-the-most-common" class="headerlink" title="8. The browser displays the HTML content (for HTML responses which is the most common)."></a>8. The browser displays the HTML content (for HTML responses which is the most common).</h4><p>The browser displays the HTML content in phases. First, it will render the bare bone HTML skeleton. Then it will check the HTML tags and sends out GET requests for additional elements on the web page, such as images, CSS stylesheets, JavaScript files etc. These static files are cached by the browser so it doesn’t have to fetch them again the next time you visit the page. At the end, you’ll see maps.google.com appearing on your browser.</p>
+<h4 id="9-Client-interaction-with-server"><a href="#9-Client-interaction-with-server" class="headerlink" title="9. Client interaction with server"></a>9. Client interaction with server</h4><p>Once a html page is loaded, there are several ways a user can interact with the server. For example, he call fill out a login form to sign in to the website. This also follows all the steps listed above, the only difference is that the HTTP request this time would be a <strong>POST</strong> instead of GET and along with that request, browser will send the form data to the server for processing (username and password in this case).<br>Once server authenticates the user, it will send the proper HTML content(may be user’s profile) back to the browser and thus user will see that new webpage after his login request is processed.</p>
+<h4 id="10-AJAX-queries"><a href="#10-AJAX-queries" class="headerlink" title="10. AJAX queries"></a>10. AJAX queries</h4><p>Another form of client interaction with server is through <a href="http://en.wikipedia.org/wiki/Ajax_%28programming%29" target="_blank" rel="noopener">AJAX(Asynchronous JavaScript And XML)</a> requests. This is an asynchronous GET/POST request to which server can send a response back in a variety of ways - <strong>json, xml, html</strong> etc. AJAX requests doesn’t hinder the current view of the webpage and work in the background. Because of this, one can dynamically modify the content of a webpage by calling an AJAX request and updating the web elements using Javascript.</p>
+<p><strong>Synchronous request</strong>: A synchronous request blocks the client until operation completes. In such case, javascript engine of the browser is blocked.</p>
+<p><strong>Asynchronous request:</strong> An asynchronous request doesn’t block the client i.e. browser is responsive. At that time, user can perform another operations also. In such case, javascript engine of the browser is not blocked.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p><a href="https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a" target="_blank" rel="noopener">https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a</a></p>
+<p><a href="http://edusagar.com/articles/view/70/What-happens-when-you-type-a-URL-in-browser" target="_blank" rel="noopener">http://edusagar.com/articles/view/70/What-happens-when-you-type-a-URL-in-browser</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jliao011.github.io/2018/06/23/url-flow/" title="What happens when you type an URL in the browser and press enter?" target="_blank" rel="external">https://jliao011.github.io/2018/06/23/url-flow/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">Jiafeng Liao</span><small class="ml-1x">New CS Grad</small></a></h3>
+        <div>Seeking full time SDE positions</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/06/23/java-stack-vs-heap/" title="Java Stack vs Heap"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/06/23/sorting/" title="Sorting Algorithms"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 Jiafeng Liao
+        
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+        	Powered by <a href="https://hexo.io">Hexo</a> || Theme - <a href="https://github.com/cofess/hexo-theme-pure">pure</a>
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://jliao011.github.io/2018/06/23/url-flow/';
+        
+        this.page.identifier = 'url-flow';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jliao011' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+    
+    
+        <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-119871741-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+
+</body>
+</html>

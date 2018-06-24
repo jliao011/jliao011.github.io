@@ -25,21 +25,21 @@
   <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
   <meta http-equiv="window-target" content="_top" />
   
-  <title>About Me | Jiafeng&#39;s Blog</title>
-  <meta name="description" content="Seeking a full-time Software Engineer position || New M.S. Grad in CS">
-<meta name="keywords" content="leetcode, computer science, sde, blog, jiafeng, liao, Jiafeng Liao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="https://jliao011.github.io/about/index.html">
+  <title>Java Stack vs Heap | Jiafeng&#39;s Blog</title>
+  <meta name="description" content="What Is Java Stack?A Java stack is part of your computer’s memory where temporary variables, which are created by all functions you do, are stored. It is used to execute a thread and may have certain">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Stack vs Heap">
+<meta property="og:url" content="https://jliao011.github.io/2018/06/23/java-stack-vs-heap/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Seeking a full-time Software Engineer position || New M.S. Grad in CS">
+<meta property="og:description" content="What Is Java Stack?A Java stack is part of your computer’s memory where temporary variables, which are created by all functions you do, are stored. It is used to execute a thread and may have certain">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-06T19:39:12.000Z">
+<meta property="og:updated_time" content="2018-06-24T01:55:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
-<meta name="twitter:description" content="Seeking a full-time Software Engineer position || New M.S. Grad in CS">
+<meta name="twitter:title" content="Java Stack vs Heap">
+<meta name="twitter:description" content="What Is Java Stack?A Java stack is part of your computer’s memory where temporary variables, which are created by all functions you do, are stored. It is used to execute a thread and may have certain">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://jliao011.github.io/about/index.html">
+  <link rel="canonical" href="https://jliao011.github.io/2018/06/23/java-stack-vs-heap/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -335,98 +335,167 @@
 </aside>
 
   
-  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
-    
-    <div class="widget">
-      <h3 class="widget-title">Links</h3>
-      <div class="widget-body">
-        <ul class="link-list lh-2x">
-          
-          <li>
-            Github:
-            <a href="https://github.com/jliao011" target="_blank">https://github.com/jliao011</a>
-          </li>
-          
-          <li>
-            Linkedin:
-            <a href="https://www.linkedin.com/in/jiafengliao" target="_blank">https://www.linkedin.com/in/jiafengliao</a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">Contact</h3>
-      <div class="widget-body">
-        <ul class="skill-list lh-2x">
-          
-          <li class="clearfix">
-            <span>Phone:</span>
-            <span>(214)945-5761</span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Email:</span>
-            <span><a href="mailto:liaojiafeng93@gmail.com">liaojiafeng93@gmail.com</a></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Address:</span>
-            <span>Dallas, TX, 75252</span>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    
-    
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#What-Is-Java-Stack"><span class="toc-number">1.</span> <span class="toc-text">What Is Java Stack?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#What-Is-Java-Heap"><span class="toc-number">2.</span> <span class="toc-text">What Is Java Heap?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#When-to-use"><span class="toc-number">3.</span> <span class="toc-text">When to use?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Difference-between-Java-Heap-Space-and-Stack-Memory"><span class="toc-number">4.</span> <span class="toc-text">Difference between Java Heap Space and Stack Memory</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Reference"><span class="toc-number">5.</span> <span class="toc-text">Reference</span></a></li></ol>
+    </nav>
   </div>
 </aside>
+
 <main class="main" role="main">
-  <article class="article archives-about article-type-normal" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">About Me</h1>
+  <div class="content">
+  <article id="post-java-stack-vs-heap" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    <p class="text-muted">Seeking a full-time Software Engineer position || New M.S. Grad in CS</p>
-    
-  </header>
-  <div class="article-body">
-    <p>NEW M.S. CS Grad (May 2018) from the University of Texas at Dallas and actively seeking a full-time SOFTWARE ENGINEER position.</p>
-<h4 id="Summery"><a href="#Summery" class="headerlink" title="Summery:"></a>Summery:</h4><ul>
-<li>Solid computer science foundation from course works and internship (BNSF Railway).</li>
-<li>Passion in cutting edge technologies and learning new skills.</li>
-<li>Quick learner and able to understand and pick up new technologies during hands-on projects. </li>
-<li>Ability to explore vast resources and be a problem solver.</li>
-<li>Detail-oriented and willing to try various approaches to achieve optimal results.</li>
-</ul>
-<h4 id="Skill-Set"><a href="#Skill-Set" class="headerlink" title="Skill Set:"></a>Skill Set:</h4><ul>
-<li>Languages: Java, Python, C/C++, Scala</li>
-<li>Databases: SQL, JPQL, MySQL, PostgreSQL, MongoDB</li>
-<li>Back-end skills: Spring Frameworks, Hibernate, JPA, JDBC, ORM, Thymeleaf, RESTful web service, PHP</li>
-<li>Front-end skills: HTML5/CSS3/JavaScript, jQuery, AJAX, BootStrap, JSON/YAML/XML, Markdown</li>
-<li>Frameworks: SLF4j/Log4j, Spring Boot/MVC/Data/Security/Mail, Hadoop, Spark, Kafka, Swing</li>
-<li>Tools &amp; OS: Eclipse, MatLab, MAMP, OpenCV, Mac/Linux Shell script, Windows</li>
-<li>Manage &amp; Deploy: Git, Maven, Gradle, Heroku</li>
-</ul>
-<h4 id="Experience"><a href="#Experience" class="headerlink" title="Experience:"></a>Experience:</h4><p>Knowledge in Core Java concepts such as OOP concepts, Collections, Exception handling, Multi-Threading, Concurrency, Socket.</p>
-<p>Knowledge and hands-on experience in Spring frameworks like Spring Boot, Spring Data, Spring MVC with Thymeleaf template engine, Spring Security and Spring Mail.</p>
-<p>Understanding of Data Access Layer technologies such as Object Relational Mapping (ORM), Java Persistence Interface (JPA), Data Access Object (DAO) implementation, DB interaction using JPQL or Spring Data repositories.</p>
-<p>Familiar with RESTful web service, MVC pattern and micro service architecture.</p>
-<p>Knowledge and experience in Relational Database design (MySQL, PostgreSQL) and familiar with Non-relational Database (MongoDB).</p>
-<p>Hands-on experience in source code management using Git, application building using Maven, logging framework SFL4j with Log4j and deployment using Heroku.</p>
-<p>Hands-on experience in front end and data transfer techniques such as HTML5/CSS3/JavaScript, jQuery, BootStrap, AJAX, XML/JSON.</p>
-<p>Hands-on experience and knowledge in Big Data technologies such as Hadoop, Spark, Kafka, MapReduce.</p>
-<p>Familiar with Machine Learning concepts such as SVM with slack/dual/kernel, Decision Tree, Random Forest, K-Mean, AdaBoost, Gaussian Mixture Models with EM, Bayesian Network, Neural Network, etc.</p>
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java Stack vs Heap
+    </h1>
+  
 
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/06/23/java-stack-vs-heap/" class="article-date">
+	  <time datetime="2018-06-24T01:29:46.000Z" itemprop="datePublished">2018-06-23</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/foundation/">foundation</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/java/">java</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/06/23/java-stack-vs-heap/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h4 id="What-Is-Java-Stack"><a href="#What-Is-Java-Stack" class="headerlink" title="What Is Java Stack?"></a>What Is Java Stack?</h4><p>A Java stack is part of your computer’s memory where <strong>temporary variables</strong>, which are created by all functions you do, are stored. It is used to execute a thread and may have certain short-lived values as well as references to other objects. It uses LIFO data structure, or <a href="http://www.journaldev.com/4098/java-heap-space-vs-stack-memory" target="_blank" rel="noopener">last in first out</a>.</p>
+<p>What does this mean? When a method is invoked, it creates a new block in the stack for that particular method. The new block will have all the local values, as well as references to other objects that are being used by the method. When the method ends, the new block will be erased and will be available for use by the next method. The objects you find here are only accessible to that particular function and will not live beyond it.</p>
+<p>This makes it very easy to keep track of the stack, where the latest reserved block is also the first to be freed. The variables created for the method are directly stored in the memory, allowing for fast access.</p>
+<p>The memory size of a Java stack is generally much less than in a Java heap space because when a method ends, all the variables created on the stack are erased forever.</p>
+<h4 id="What-Is-Java-Heap"><a href="#What-Is-Java-Heap" class="headerlink" title="What Is Java Heap?"></a>What Is Java Heap?</h4><p>Java objects are in an area, which is called the heap. It is created when the program is run, and its size may decrease or increase as your program runs. It can easily become full, and when it does, garbage collection is initiated. This is when objects that are no longer used are deleted to make way for new objects.</p>
+<p>Unlike in a Java stack where memory allocation is done when your program is compiled, in a heap it is allocated as your program is run. Accessing variables placed here is a bit slower compared to a stack’s direct and fast access.</p>
+<p>Heap is likened to a <a href="https://www.quora.com/How-is-java-memory-pool-divided" target="_blank" rel="noopener">global memory pool</a>. A method or function will use the heap for memory allocation if you need the data or variables to live longer than the method or function in question. The objects you find here are accessible to all the functions.</p>
+<p>Also, there is no specific order in reserving blocks in a heap. You can allocate blocks at any time, and then you can free it when you wish. As you can imagine, it is much more complex to keep track of the parts that are free and can be allocated, but it can also be divided into two generations or sub-areas.</p>
+<p>These sub-areas are called the young space (or nursery) and the old space. The young space is typically earmarked for the memory allocation for new objects. When the young space becomes full, <a href="https://stackify.com/what-is-java-garbage-collection/" target="_blank" rel="noopener">garbage collection</a> happens. Short-lived or temporary objects typically use the young space. This help makes garbage collection faster when compared to a heap without any divisions.</p>
+<h4 id="When-to-use"><a href="#When-to-use" class="headerlink" title="When to use?"></a>When to use?</h4><p><strong>Where is it stored?</strong> Variables that are allocated on the stack are accessible directly from memory, and as such, these can run very fast. Accessing objects on the heap, on the other hand, takes more time.</p>
+<p><strong>When does the allocation happen?</strong> On the stack, memory allocation happens when the program is compiled. Meanwhile, on the heap, it begins when the program is run.</p>
+<p><a href="https://softwareengineering.stackexchange.com/questions/65281/stack-and-heap-memory-in-java" target="_blank" rel="noopener"><strong>When do you use stack?</strong> </a> Stack can only be used for local variables that use up small amounts of memory. The good news is that memory allocation and management is not going to be your problem and access to these objects is very fast. It does suffer from size limitations and the fact that you cannot resize variables on the stack.</p>
+<p><a href="https://softwareengineering.stackexchange.com/questions/65281/stack-and-heap-memory-in-java" target="_blank" rel="noopener"><strong>When do you use heap?</strong></a> You use the heap to allocate memory if there are variables that you need to be accessed globally, as opposed to just being available only to the methods and functions that created it. Heap is also good when you have a need for a lot of memory since it has no limit on memory size. You can also resize the variables on the heap.</p>
+<h4 id="Difference-between-Java-Heap-Space-and-Stack-Memory"><a href="#Difference-between-Java-Heap-Space-and-Stack-Memory" class="headerlink" title="Difference between Java Heap Space and Stack Memory"></a>Difference between Java Heap Space and Stack Memory</h4><p>Based on the above explanations, we can easily conclude following differences between Heap and Stack memory.</p>
+<ol>
+<li>Heap memory is used by all the parts of the application whereas stack memory is used only by one thread of execution.</li>
+<li>Whenever an object is created, it’s always stored in the Heap space and stack memory contains the reference to it. Stack memory only contains local primitive variables and reference variables to objects in heap space.</li>
+<li>Objects stored in the heap are globally accessible whereas stack memory can’t be accessed by other threads.</li>
+<li>Memory management in stack is done in LIFO manner whereas it’s more complex in Heap memory because it’s used globally. Heap memory is divided into Young-Generation, Old-Generation etc, more details at <a href="https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java" target="_blank" rel="noopener">Java Garbage Collection</a>.</li>
+<li>Stack memory is short-lived whereas heap memory lives from the start till the end of application execution.</li>
+<li>We can use <strong>-Xms</strong> and <strong>-Xmx</strong> JVM option to define the startup size and maximum size of heap memory. We can use <strong>-Xss</strong> to define the stack memory size.</li>
+<li>When stack memory is full, Java runtime throws <code>java.lang.StackOverFlowError</code> whereas if heap memory is full, it throws <code>java.lang.OutOfMemoryError: Java Heap Space</code> error.</li>
+<li>Stack memory size is very less when compared to Heap memory. Because of simplicity in memory allocation (LIFO), stack memory is very fast when compared to heap memory.</li>
+</ol>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://dzone.com/articles/stack-vs-heap-understanding-java-memory-allocation" target="_blank" rel="noopener">https://dzone.com/articles/stack-vs-heap-understanding-java-memory-allocation</a></p>
+<p><a href="https://www.journaldev.com/4098/java-heap-space-vs-stack-memory" target="_blank" rel="noopener">https://www.journaldev.com/4098/java-heap-space-vs-stack-memory</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jliao011.github.io/2018/06/23/java-stack-vs-heap/" title="Java Stack vs Heap" target="_blank" rel="external">https://jliao011.github.io/2018/06/23/java-stack-vs-heap/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">Jiafeng Liao</span><small class="ml-1x">New CS Grad</small></a></h3>
+        <div>Seeking full time SDE positions</div>
+      </div>
+    </figure>
   </div>
-</article>
+</div>
 
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/06/23/url-flow/" title="What happens when you type an URL in the browser and press enter?"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
   
 
 
@@ -483,6 +552,29 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
     
     
+        
+
+
+    
+    
+        
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://jliao011.github.io/2018/06/23/java-stack-vs-heap/';
+        
+        this.page.identifier = 'java-stack-vs-heap';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jliao011' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
     
     
         <script defer type="text/javascript">
