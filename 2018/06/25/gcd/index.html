@@ -26,18 +26,18 @@
   <meta http-equiv="window-target" content="_top" />
   
   <title>Greatest Common Divisor | Jiafeng&#39;s Blog</title>
-  <meta name="description" content="GCD of 2 integerrecursive call: put smaller number first 12345public int gcd(int a, int b)&amp;#123;    if (a == 0)        return b;    return gcd(b % a, a);&amp;#125; example: gcd(12,18=&amp;gt; gcd(6,12=&amp;gt;gcd">
+  <meta name="description" content="GCD of 2 integerrecursive call: put smaller number first 12345public int gcd(int a, int b)&amp;#123;    if (a == 0)        return b;    return gcd(b % a, a);&amp;#125; example: gcd(12,18)=&amp;gt; gcd(6,12)=&amp;gt;g">
 <meta name="keywords" content="leetcode, computer science, sde, blog, jiafeng, liao, Jiafeng Liao">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Greatest Common Divisor">
 <meta property="og:url" content="https://jliao011.github.io/2018/06/25/gcd/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="GCD of 2 integerrecursive call: put smaller number first 12345public int gcd(int a, int b)&amp;#123;    if (a == 0)        return b;    return gcd(b % a, a);&amp;#125; example: gcd(12,18=&amp;gt; gcd(6,12=&amp;gt;gcd">
+<meta property="og:description" content="GCD of 2 integerrecursive call: put smaller number first 12345public int gcd(int a, int b)&amp;#123;    if (a == 0)        return b;    return gcd(b % a, a);&amp;#125; example: gcd(12,18)=&amp;gt; gcd(6,12)=&amp;gt;g">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-25T08:37:00.000Z">
+<meta property="og:updated_time" content="2018-06-25T08:39:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Greatest Common Divisor">
-<meta name="twitter:description" content="GCD of 2 integerrecursive call: put smaller number first 12345public int gcd(int a, int b)&amp;#123;    if (a == 0)        return b;    return gcd(b % a, a);&amp;#125; example: gcd(12,18=&amp;gt; gcd(6,12=&amp;gt;gcd">
+<meta name="twitter:description" content="GCD of 2 integerrecursive call: put smaller number first 12345public int gcd(int a, int b)&amp;#123;    if (a == 0)        return b;    return gcd(b % a, a);&amp;#125; example: gcd(12,18)=&amp;gt; gcd(6,12)=&amp;gt;g">
   <!-- Canonical links -->
   <link rel="canonical" href="https://jliao011.github.io/2018/06/25/gcd/index.html">
   
@@ -385,11 +385,11 @@
         <h4 id="GCD-of-2-integer"><a href="#GCD-of-2-integer" class="headerlink" title="GCD of 2 integer"></a>GCD of 2 integer</h4><p><strong>recursive call</strong>: put smaller number first</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">return</span> gcd(b % a, a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>example:</p>
-<p><code>gcd(12,18</code>=&gt; <code>gcd(6,12</code>=&gt;<code>gcd(0,6)</code>=&gt;<code>6</code></p>
+<p><code>gcd(12,18)</code>=&gt; <code>gcd(6,12)</code>=&gt;<code>gcd(0,6)</code>=&gt;<code>6</code></p>
 <p><code>gcd(8,2)</code>=&gt;<code>gcd(2,8)</code>=&gt;<code>gcd(0,2)</code>=&gt;<code>2</code></p>
 <h4 id="GCD-of-an-int-array"><a href="#GCD-of-an-int-array" class="headerlink" title="GCD of an int array"></a>GCD of an int array</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcd(a, b, c) = gcd(a, gcd(b, c)) </span><br><span class="line">             = gcd(gcd(a, b), c) </span><br><span class="line">             = gcd(gcd(a, c), b)</span><br></pre></td></tr></table></figure>
 <p><strong>assume valid input, no 0s</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = nums[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;nums.length; ++i)</span><br><span class="line">		result = gcd(result,nums[i]);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = nums[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; ++i)</span><br><span class="line">		result = gcd(result, nums[i]);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage:"></a>Usage:</h4><p>Given 2 points <code>(x1,y1)</code>, <code>(x2,y2)</code>, determine whether point1 can move to point2.</p>
 <p>Assume </p>
 <p>Rules: <code>(x1,y1)</code> =&gt; <code>(x1+y1,y1)</code> or  <code>(x1,y1)</code> =&gt; <code>(x1,y1+x1)</code></p>
