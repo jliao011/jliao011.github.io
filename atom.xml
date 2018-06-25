@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jliao011.github.io/"/>
-  <updated>2018-06-24T01:55:56.000Z</updated>
+  <updated>2018-06-25T08:37:00.000Z</updated>
   <id>https://jliao011.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Greatest Common Divisor</title>
+    <link href="https://jliao011.github.io/2018/06/25/gcd/"/>
+    <id>https://jliao011.github.io/2018/06/25/gcd/</id>
+    <published>2018-06-25T07:59:52.000Z</published>
+    <updated>2018-06-25T08:37:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="GCD-of-2-integer"><a href="#GCD-of-2-integer" class="headerlink" title="GCD of 2 integer"></a>GCD of 2 integer</h4><p><strong>recursive call</strong>: put smaller number first</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    <span class="keyword">return</span> gcd(b % a, a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>example:</p><p><code>gcd(12,18</code>=&gt; <code>gcd(6,12</code>=&gt;<code>gcd(0,6)</code>=&gt;<code>6</code></p><p><code>gcd(8,2)</code>=&gt;<code>gcd(2,8)</code>=&gt;<code>gcd(0,2)</code>=&gt;<code>2</code></p><h4 id="GCD-of-an-int-array"><a href="#GCD-of-an-int-array" class="headerlink" title="GCD of an int array"></a>GCD of an int array</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcd(a, b, c) = gcd(a, gcd(b, c)) </span><br><span class="line">             = gcd(gcd(a, b), c) </span><br><span class="line">             = gcd(gcd(a, c), b)</span><br></pre></td></tr></table></figure><p><strong>assume valid input, no 0s</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> result = nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;nums.length; ++i)</span><br><span class="line">result = gcd(result,nums[i]);</span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage:"></a>Usage:</h4><p>Given 2 points <code>(x1,y1)</code>, <code>(x2,y2)</code>, determine whether point1 can move to point2.</p><p>Assume </p><p>Rules: <code>(x1,y1)</code> =&gt; <code>(x1+y1,y1)</code> or  <code>(x1,y1)</code> =&gt; <code>(x1,y1+x1)</code></p><p><strong>first thought</strong> (TLE)</p> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canReach</span><span class="params">(<span class="keyword">int</span> x1,<span class="keyword">int</span> y1,<span class="keyword">int</span> x2,<span class="keyword">int</span> y2)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(x1 &gt; x2 || y1 &gt; y2)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(x1 == x2 &amp;&amp; y1 == y2)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">return</span> canReach(x1+y1, y1, x2, y2) || canReach(x1, y1+x1, x2, y2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>from point2 to point1 would be better</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canReach</span><span class="params">(<span class="keyword">int</span> x1,<span class="keyword">int</span> y1,<span class="keyword">int</span> x2,<span class="keyword">int</span> y2)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(x1 &gt; x2 || y1 &gt; y2)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span>(x1 == x2 &amp;&amp; y1 == y2)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">return</span> canReach(x1, y1, x2-y2, y2) || canReach(x1, y1, x2, y2-x2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>optimize in path</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canReach</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (x1 &gt; x2 || y1 &gt; y2)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"><span class="keyword">if</span> (x1 == x2 &amp;&amp; y1 == y2)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">if</span> (x1 == x2 || y1 == y2) &#123;</span><br><span class="line"><span class="keyword">if</span> (x1 == x2 &amp;&amp; (y2 - y1) % x1 == <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (y1 == y2 &amp;&amp; (x2 - x1) % y1 == <span class="number">0</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> canReach(x1, y1, x2 - y2, y2) || canReach(x1, y1, x2, y2 - x2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>GCD</strong></p><p>According to the definition of Greatest Common Divisior, if m is any integer, then <code>gcd(a + m * b, b) = gcd(a, b)</code>. Therefore, the gcd of (a + b, b), (a, a + b), (a - b, b) and (a, a - b) will be the same as the gcd of (a, b). Therefore, in order to move to the target point, the gcd of the target point should be equal to the gcd of the starting point.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canReach</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gcd(x1, y1)== gcd(x2, y2); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;GCD-of-2-integer&quot;&gt;&lt;a href=&quot;#GCD-of-2-integer&quot; class=&quot;headerlink&quot; title=&quot;GCD of 2 integer&quot;&gt;&lt;/a&gt;GCD of 2 integer&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;recurs
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://jliao011.github.io/categories/algorithm/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>top k largest(smallest) in n elements</title>
+    <link href="https://jliao011.github.io/2018/06/24/top-k/"/>
+    <id>https://jliao011.github.io/2018/06/24/top-k/</id>
+    <published>2018-06-24T05:15:52.000Z</published>
+    <updated>2018-06-24T22:52:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Given an unsorted array of length N, find top k largest (smallest) elements. k&lt;&lt;N.</p><h3 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Question&quot;&gt;&lt;a href=&quot;#Question&quot; class=&quot;headerlink&quot; title=&quot;Question&quot;&gt;&lt;/a&gt;Question&lt;/h3&gt;&lt;p&gt;Given an unsorted array of length N, find top 
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://jliao011.github.io/categories/algorithm/"/>
+    
+    
+      <category term="heap" scheme="https://jliao011.github.io/tags/heap/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Stack vs Heap</title>
