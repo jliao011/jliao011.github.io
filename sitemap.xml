@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jliao011.github.io/2018/05/27/leet-code/</loc>
+    
+    <lastmod>2018-07-01T22:27:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jliao011.github.io/2018/06/25/gcd/</loc>
     
     <lastmod>2018-06-25T08:39:35.000Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://jliao011.github.io/2018/06/23/sorting/</loc>
     
     <lastmod>2018-06-24T00:20:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jliao011.github.io/2018/05/27/leet-code/</loc>
-    
-    <lastmod>2018-06-20T07:32:17.000Z</lastmod>
     
   </url>
   
