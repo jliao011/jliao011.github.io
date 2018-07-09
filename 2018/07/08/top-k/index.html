@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119871741-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119871741-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> <!-- minimal-ui -->
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  <title>top k largest(smallest) in n elements | Jiafeng&#39;s Blog</title>
+  <meta name="description" content="QuestionGiven an unsorted array of length N, find top k largest (smallest) elements. k&amp;lt;&amp;lt;N. Methodsmethod 1. sorting:Sort the array, pick first k elements. Time complexity O(NlogN). Since N is la">
+<meta name="keywords" content="heap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="top k largest(smallest) in n elements">
+<meta property="og:url" content="https://jliao011.github.io/2018/07/08/top-k/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="QuestionGiven an unsorted array of length N, find top k largest (smallest) elements. k&amp;lt;&amp;lt;N. Methodsmethod 1. sorting:Sort the array, pick first k elements. Time complexity O(NlogN). Since N is la">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-07-09T06:42:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="top k largest(smallest) in n elements">
+<meta name="twitter:description" content="QuestionGiven an unsorted array of length N, find top k largest (smallest) elements. k&amp;lt;&amp;lt;N. Methodsmethod 1. sorting:Sort the array, pick first k elements. Time complexity O(NlogN). Since N is la">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://jliao011.github.io/2018/07/08/top-k/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+
+  
+  <meta name="google-site-verification" content="Q8ZJjFeuFLdQt5A3JEUX1a0PKcngzJNKeU2D5Y24yXA" />
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Jiafeng Liao</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">New CS Grad</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dallas, TX</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Welcome to my blog!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/foundation/">foundation</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deploy/">deploy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rest/">rest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">software</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trie/">trie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/data-structure/" style="font-size: 13px;">data structure</a> <a href="/tags/deploy/" style="font-size: 13.5px;">deploy</a> <a href="/tags/heap/" style="font-size: 13px;">heap</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/rest/" style="font-size: 13px;">rest</a> <a href="/tags/software/" style="font-size: 13px;">software</a> <a href="/tags/sort/" style="font-size: 13px;">sort</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/trie/" style="font-size: 13px;">trie</a> <a href="/tags/web/" style="font-size: 14px;">web</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/07/08/top-k/" class="title">top k largest(smallest) in n elements</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-07-09T03:43:52.000Z" itemprop="datePublished">2018-07-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/25/gcd/" class="title">Greatest Common Divisor</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-25T07:59:52.000Z" itemprop="datePublished">2018-06-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/java-stack-vs-heap/" class="title">Java Stack vs Heap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:29:46.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/url-flow/" class="title">What happens when you type an URL in the browser and press enter?</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:13:20.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/sorting/" class="title">Sorting Algorithms</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-23T08:02:38.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Question"><span class="toc-number">1.</span> <span class="toc-text">Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods"><span class="toc-number">2.</span> <span class="toc-text">Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#method-1-sorting"><span class="toc-number">2.1.</span> <span class="toc-text">method 1. sorting:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method-2-k-bubble-sort"><span class="toc-number">2.2.</span> <span class="toc-text">method 2. k bubble sort:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method-3-arbitrary-k-temp-result"><span class="toc-number">2.3.</span> <span class="toc-text">method 3. arbitrary k temp result:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method-4-max-heap-to-find-top-k"><span class="toc-number">2.4.</span> <span class="toc-text">method 4. max heap to find top k:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Time-complexity-of-heap"><span class="toc-number">2.4.1.</span> <span class="toc-text">Time complexity of heap:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method-5-min-heap-to-find-max-top-k"><span class="toc-number">2.5.</span> <span class="toc-text">method 5. min heap to find max top k:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#method-6-quick-select"><span class="toc-number">2.6.</span> <span class="toc-text">method 6. quick select:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problems"><span class="toc-number">3.</span> <span class="toc-text">Problems:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">4.</span> <span class="toc-text">References:</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-top-k" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      top k largest(smallest) in n elements
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/07/08/top-k/" class="article-date">
+	  <time datetime="2018-07-09T03:43:52.000Z" itemprop="datePublished">2018-07-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/heap/">heap</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/08/top-k/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Given an unsorted array of length N, find top k largest (smallest) elements. k&lt;&lt;N.</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><h3 id="method-1-sorting"><a href="#method-1-sorting" class="headerlink" title="method 1. sorting:"></a>method 1. sorting:</h3><p>Sort the array, pick first k elements. Time complexity <strong>O(NlogN)</strong>. Since N is large so it’s not efficient enough.</p>
+<p><strong>Time O(NlogN), Space O(k)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] topK(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">	<span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">	Arrays.sort(nums);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">		result[i] = nums[nums.length - <span class="number">1</span> - i];</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="method-2-k-bubble-sort"><a href="#method-2-k-bubble-sort" class="headerlink" title="method 2. k bubble sort:"></a>method 2. k bubble sort:</h3><p>Run bubble sort for <code>k</code> times. Since bubble sort could move the largest (smallest) element to one end of the array, run the outer loop for <code>k</code> times could find the top k largest or smallest element.</p>
+<p>Each inner loop the time complexity is <strong>O(N)</strong>, and run for <code>k</code> loops, so the total time complexity is <strong>O(kN)</strong>.</p>
+<p>Compare to method 1, if <code>k</code> is less than <code>logN</code> then this method is better.</p>
+<p><strong>Time O(kN), Space O(k)</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] topK(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">	<span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123; <span class="comment">// k loops</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = nums.length - <span class="number">1</span>; j &gt; <span class="number">0</span>; --j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (nums[j] &gt; nums[j - <span class="number">1</span>]) &#123; <span class="comment">// swap</span></span><br><span class="line">				<span class="keyword">int</span> temp = nums[j];</span><br><span class="line">				nums[j] = nums[j - <span class="number">1</span>];</span><br><span class="line">				nums[j - <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">		result[i] = nums[i];</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="method-3-arbitrary-k-temp-result"><a href="#method-3-arbitrary-k-temp-result" class="headerlink" title="method 3. arbitrary k temp result:"></a>method 3. arbitrary k temp result:</h3><p>Build a temporary result (find largest k)</p>
+<ol>
+<li>Store first k element in a list.</li>
+<li>Find the smallest element in this list <strong>O(k)</strong></li>
+<li>Traverse the rest element <strong>O(N-k)</strong>, if it’s larger than the smallest element in first k, remove the previous smallest, add the current, and find the smallest again <strong>O(k)</strong></li>
+<li>Return the result, <strong>Time complexity: O((N-k)k), if output is sorted: O((N-k)k + klogk). Space O(k).</strong></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] topK(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">	<span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">	<span class="keyword">int</span> min = Integer.MAX_VALUE, minIdx = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123;</span><br><span class="line">		result[i] = nums[i];</span><br><span class="line">		<span class="keyword">if</span> (nums[i] &lt; min) &#123;</span><br><span class="line">			min = nums[i];</span><br><span class="line">			minIdx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = k; i &lt; nums.length; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (nums[i] &gt; min) &#123;</span><br><span class="line">			result[minIdx] = nums[i];</span><br><span class="line">			min = nums[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; ++j) &#123;</span><br><span class="line">			<span class="keyword">if</span> (result[j] &lt; min) &#123;</span><br><span class="line">				min = result[j];</span><br><span class="line">				minIdx = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	Arrays.sort(result);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="method-4-max-heap-to-find-top-k"><a href="#method-4-max-heap-to-find-top-k" class="headerlink" title="method 4. max heap to find top k:"></a>method 4. max heap to find top k:</h3><ol>
+<li>Build heap from collection takes <strong>O(N)</strong>, explain later.</li>
+<li>Poll from the max heap <code>k</code> times, each time takes <strong>O(logN)</strong></li>
+<li>Return the result, <strong>Time O(N + klogN), Space O(N)</strong>. If <code>k &lt; N/logN</code>, then the runtime is proximately <strong>O(N)</strong>.</li>
+</ol>
+<h4 id="Time-complexity-of-heap"><a href="#Time-complexity-of-heap" class="headerlink" title="Time complexity of heap:"></a>Time complexity of heap:</h4><p>In java PriorityQueue class, the heap initialized from a collection:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initFromCollection</span><span class="params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;</span><br><span class="line">    initElementsFromCollection(c);</span><br><span class="line">    heapify();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">heapify</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = (size &gt;&gt;&gt; <span class="number">1</span>) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        siftDown(i, (E) queue[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>siftDown</code> method takes <code>logn</code> time, seems the time complexity is <code>O(n/2 * logn)</code>. But for a heap tree, assume the depth is <code>h</code>, total number of node <code>n = 2^h-1</code>, number of leaves <code>2^(h-1)</code>, approximately <code>n/2</code> nodes, since when doing the heapify, leaves are not considered, the <code>siftDown</code> is called from its above level, which has <code>2^(h-2)= n/4</code> nodes. At this level, if every node is sifted down, the total call is <code>1 * n/4</code>. Above this level, there are <code>n/8</code> nodes, and each node would be sifted down at most 2 levels, so total call is <code>2 * n/8</code>……… So while doing the heapify function, the total call is <code>1*n/4 + 2*n/8 + 3*n/16 + ... + logn*n/2^(logn+1) = n*(1/4+2/8+3/16+...+h/2^(h-1)) &lt;= 2n</code>, so the time complexity is <strong>O(n)</strong>.</p>
+<p>If insert into heap one by one, the time complexity should be <strong>O(nlogn)</strong>. </p>
+<p><strong>Implementation:</strong></p>
+<p>Java PriorityQueue doesn’t allow to init like <code>new PriorityQueue&lt;&gt;(Collection,Comparator)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] topK(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">	<span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">	List&lt;Integer&gt; collection = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> num : nums)</span><br><span class="line">		collection.add(num);</span><br><span class="line">	<span class="comment">// cannot init using another comparator, so return min K</span></span><br><span class="line">	PriorityQueue&lt;Integer&gt; heap = <span class="keyword">new</span> PriorityQueue&lt;&gt;(collection);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">		result[i] = heap.poll();</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://visualgo.net/en/heap" target="_blank" rel="noopener"><strong>visualization</strong></a></p>
+<p><strong>references:</strong></p>
+<p><a href="https://www.quora.com/Does-Javas-PriorityQueue-constructor-with-a-collection-build-a-heap-in-linear-time" target="_blank" rel="noopener">https://www.quora.com/Does-Javas-PriorityQueue-constructor-with-a-collection-build-a-heap-in-linear-time</a></p>
+<p><a href="https://stackoverflow.com/questions/9755721/how-can-building-a-heap-be-on-time-complexity" target="_blank" rel="noopener">https://stackoverflow.com/questions/9755721/how-can-building-a-heap-be-on-time-complexity</a></p>
+<p><a href="https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/</a></p>
+<h3 id="method-5-min-heap-to-find-max-top-k"><a href="#method-5-min-heap-to-find-max-top-k" class="headerlink" title="method 5. min heap to find max top k:"></a>method 5. min heap to find max top k:</h3><ol>
+<li>Init a min heap using first k element in time <strong>O(k)</strong></li>
+<li>Traverse the rest in time <strong>O(n-k)</strong><ol>
+<li>If element is less than top of min heap, ignore. <strong>O(1)</strong></li>
+<li>If element is larger than top of min heap, poll the top and offer current. <strong>O(logk)</strong></li>
+</ol>
+</li>
+<li>Finally element in the min heap are max top k.</li>
+<li>Time complexity <code>O(k + (n-k)logk)</code> or <code>O(k + (n-k)logk + klogk) = O(k + nlogk)</code> if result is sorted.</li>
+</ol>
+<p>Compared to method 4, which could reach <code>O(n)</code>, this method is larger than <code>O(n)</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] topK(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">	<span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">	List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">		list.add(nums[i]);</span><br><span class="line">	<span class="comment">// min heap to find top k</span></span><br><span class="line">	PriorityQueue&lt;Integer&gt; heap = <span class="keyword">new</span> PriorityQueue&lt;&gt;(list);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = k; i &lt; nums.length; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (nums[i] &gt; heap.peek()) &#123;</span><br><span class="line">			heap.poll();</span><br><span class="line">			heap.offer(nums[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">		result[i] = heap.poll();</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="method-6-quick-select"><a href="#method-6-quick-select" class="headerlink" title="method 6. quick select:"></a>method 6. quick select:</h3><ol>
+<li>Use quick select method to find the kth largest element, then right side of kth element are all larger than k. <strong>Time complexity O(n)</strong>.</li>
+<li>If sorted result, then <strong>Time complexity is O(n + klogk)</strong>.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] topK(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k) &#123;</span><br><span class="line">	<span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[k];</span><br><span class="line">	<span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">		<span class="keyword">int</span> pivot = partition(nums, left, right);</span><br><span class="line">		<span class="keyword">if</span> (pivot == k - <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (pivot &lt; k - <span class="number">1</span>)</span><br><span class="line">			left = pivot + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			right = pivot - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">		result[i] = nums[i];</span><br><span class="line">	Arrays.sort(result);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">	swap(nums, mid, right);</span><br><span class="line">	<span class="keyword">int</span> pivot = left - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = left; i &lt; right; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (nums[i] &gt;= nums[right])</span><br><span class="line">			swap(nums, ++pivot, i);</span><br><span class="line">	&#125;</span><br><span class="line">	swap(nums, ++pivot, right);</span><br><span class="line">	<span class="keyword">return</span> pivot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = nums[i];</span><br><span class="line">	nums[i] = nums[j];</span><br><span class="line">	nums[j] = temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems:"></a>Problems:</h2><blockquote>
+<p>There are total n people, allocate k of n to place A, and the rest to place B. Given a <code>int[2]</code> like <code>[300,500]</code>, represent that the relocation fee to A is 300 and to B is 500. Calculate the min cost for allocation.</p>
+</blockquote>
+<p>This could be a problem of find min k question. Said <code>tuple = [300,500]</code> is the cost for one person. Then <code>tuple[0]</code> is the fee to A, <code>tuple[1]</code> is the fee to B. Assume allocate this person to A, the cost is <code>tuple[0] == 300</code>, then the difference <code>tuple[0] - tuple[1]</code> is how much the cost increase if we move this person from B to A. If it’s negative means that keeps this person in A will decrease the cost. If we sorted the input list based on the difference <code>(o1,o2) -&gt;((o1[1]-o1[2])-(o2[1]-o2[2]))</code>, we could get the result. Assume we put  arbitrary k people to A, then how to minimize the cost? We move people from A to B, whose cost decrease <code>tuple[0]-tuple[1]</code> is the largest. After we find the first k min tuple, they should at A, the rest at B. </p>
+<p><strong>Sort:</strong> time complexity <code>O(nlogn)</code> space <code>O(1)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">minCost</span><span class="params">(<span class="keyword">int</span>[][] person, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line">	Arrays.sort(person, (o1, o2) -&gt; ((o1[<span class="number">0</span>] - o1[<span class="number">1</span>]) - (o2[<span class="number">0</span>] - o2[<span class="number">1</span>])));</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i)</span><br><span class="line">		cost += person[i][<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = k; i &lt; person.length; ++i)</span><br><span class="line">		cost += person[i][<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">return</span> cost;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Max heap to get min k:</strong></p>
+<p>Assume put k person to A, then check rest <code>n-k</code> person, if the cost drops larger, move it to A, poll the top move to B.</p>
+<p><strong>Time complexity:</strong> build max heap size k <code>O(klogk)</code> from scratch,  check and poll top <code>O((n-k)logk)</code></p>
+<p>Total is <code>O(nlogk)</code></p>
+<p>If could build max heap from collection, time is <code>O(k)</code>, and traverse rest <code>n-k</code> is <code>O((n-k)logk)</code>, total is <code>O(k + (n-k)logk)</code> will be better.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">minCost</span><span class="params">(<span class="keyword">int</span>[][] person, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line">	PriorityQueue&lt;<span class="keyword">int</span>[]&gt; maxHeap = <span class="keyword">new</span> PriorityQueue&lt;&gt;(k, <span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] o1, <span class="keyword">int</span>[] o2)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> (o2[<span class="number">0</span>] - o2[<span class="number">1</span>]) - (o1[<span class="number">0</span>] - o1[<span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span>[] p : person) &#123;</span><br><span class="line">		<span class="keyword">if</span> (maxHeap.size() &lt; k) &#123;</span><br><span class="line">			<span class="comment">// allocate first k to A</span></span><br><span class="line">			maxHeap.offer(p);</span><br><span class="line">			cost += p[<span class="number">0</span>];</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123; <span class="comment">// for rest in B</span></span><br><span class="line">			cost += p[<span class="number">1</span>]; <span class="comment">// to B first</span></span><br><span class="line">			<span class="keyword">int</span>[] top = maxHeap.peek();</span><br><span class="line">			<span class="keyword">if</span> (p[<span class="number">0</span>] - p[<span class="number">1</span>] &lt; top[<span class="number">0</span>] - top[<span class="number">1</span>]) &#123;</span><br><span class="line">				<span class="comment">// cost decrease if move top to B</span></span><br><span class="line">				cost += -top[<span class="number">0</span>] + top[<span class="number">1</span>];</span><br><span class="line">				maxHeap.poll();</span><br><span class="line">				maxHeap.offer(p);</span><br><span class="line">				cost += p[<span class="number">0</span>] - p[<span class="number">1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> cost;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h2><p><a href="http://www.ardendertat.com/2011/05/30/my-favorite-interview-question/" target="_blank" rel="noopener">http://www.ardendertat.com/2011/05/30/my-favorite-interview-question/</a></p>
+<p><a href="https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jliao011.github.io/2018/07/08/top-k/" title="top k largest(smallest) in n elements" target="_blank" rel="external">https://jliao011.github.io/2018/07/08/top-k/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">Jiafeng Liao</span><small class="ml-1x">New CS Grad</small></a></h3>
+        <div>Seeking full time SDE positions</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/06/25/gcd/" title="Greatest Common Divisor"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 Jiafeng Liao
+        
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+        	Powered by <a href="https://hexo.io">Hexo</a> || Theme - <a href="https://github.com/cofess/hexo-theme-pure">pure</a>
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://jliao011.github.io/2018/07/08/top-k/';
+        
+        this.page.identifier = 'top-k';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jliao011' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+    
+    
+        <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-119871741-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+
+</body>
+</html>
