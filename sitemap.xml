@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jliao011.github.io/2018/07/08/top-k/</loc>
+    
+    <lastmod>2018-07-10T22:57:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jliao011.github.io/2018/07/10/top-k-frequent-element/</loc>
+    
+    <lastmod>2018-07-10T22:42:47.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jliao011.github.io/2018/06/12/trie/</loc>
     
     <lastmod>2018-07-10T05:53:48.000Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://jliao011.github.io/2018/05/27/leet-code/</loc>
     
     <lastmod>2018-07-10T03:26:33.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jliao011.github.io/2018/07/08/top-k/</loc>
-    
-    <lastmod>2018-07-09T06:42:43.000Z</lastmod>
     
   </url>
   
