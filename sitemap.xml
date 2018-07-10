@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jliao011.github.io/2018/06/12/trie/</loc>
+    
+    <lastmod>2018-07-10T05:53:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jliao011.github.io/2018/06/25/gcd/</loc>
     
     <lastmod>2018-07-10T03:29:36.000Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>https://jliao011.github.io/2018/06/23/sorting/</loc>
     
     <lastmod>2018-06-24T00:20:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jliao011.github.io/2018/06/12/trie/</loc>
-    
-    <lastmod>2018-06-12T07:43:00.000Z</lastmod>
     
   </url>
   
