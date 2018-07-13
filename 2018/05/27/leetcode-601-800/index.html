@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119871741-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119871741-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> <!-- minimal-ui -->
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  <title>LeetCode Solutions 601 - 800 | Jiafeng&#39;s Blog</title>
+  <meta name="description" content="601 ~ 700 701 ~ 800     #604-compressed-string-iterator-easy    #625-minimun-factorization-medium    #632-smallest-range-hard     #604-compressed-string-iterator-easyDesign and implement a data str">
+<meta name="keywords" content="leetcode, computer science, sde, blog, jiafeng, liao, Jiafeng Liao">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode Solutions 601 - 800">
+<meta property="og:url" content="https://jliao011.github.io/2018/05/27/leetcode-601-800/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="601 ~ 700 701 ~ 800     #604-compressed-string-iterator-easy    #625-minimun-factorization-medium    #632-smallest-range-hard     #604-compressed-string-iterator-easyDesign and implement a data str">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-07-13T05:30:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode Solutions 601 - 800">
+<meta name="twitter:description" content="601 ~ 700 701 ~ 800     #604-compressed-string-iterator-easy    #625-minimun-factorization-medium    #632-smallest-range-hard     #604-compressed-string-iterator-easyDesign and implement a data str">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://jliao011.github.io/2018/05/27/leetcode-601-800/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+
+  
+  <meta name="google-site-verification" content="Q8ZJjFeuFLdQt5A3JEUX1a0PKcngzJNKeU2D5Y24yXA" />
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Jiafeng Liao</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">New CS Grad</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dallas, TX</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Welcome to my blog!</p><br/><p>Seeking full-time positions right now..</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/foundation/">foundation</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deploy/">deploy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rest/">rest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">software</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trie/">trie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/data-structure/" style="font-size: 13px;">data structure</a> <a href="/tags/deploy/" style="font-size: 13.5px;">deploy</a> <a href="/tags/heap/" style="font-size: 13px;">heap</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/rest/" style="font-size: 13px;">rest</a> <a href="/tags/software/" style="font-size: 13px;">software</a> <a href="/tags/sort/" style="font-size: 13.5px;">sort</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/trie/" style="font-size: 13px;">trie</a> <a href="/tags/web/" style="font-size: 14px;">web</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/07/10/top-k-frequent-element/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/07/10/top-k-frequent-element/" class="title">Top K Frequent Element</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-07-10T21:13:23.000Z" itemprop="datePublished">2018-07-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/07/08/top-k/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/07/08/top-k/" class="title">Top k largest(smallest) in n elements</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-07-09T03:43:52.000Z" itemprop="datePublished">2018-07-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/25/gcd/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/25/gcd/" class="title">Greatest Common Divisor</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-25T07:59:52.000Z" itemprop="datePublished">2018-06-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/23/java-stack-vs-heap/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/java-stack-vs-heap/" class="title">Java Stack vs Heap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:29:46.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/23/url-flow/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/url-flow/" class="title">What happens when you type an URL in the browser and press enter?</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:13:20.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#604-compressed-string-iterator-easy"><span class="toc-number">1.</span> <span class="toc-text">#604-compressed-string-iterator-easy</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#625-minimun-factorization-medium"><span class="toc-number">2.</span> <span class="toc-text">#625-minimun-factorization-medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#632-smallest-range-hard"><span class="toc-number">3.</span> <span class="toc-text">#632-smallest-range-hard</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-leetcode-601-800" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode Solutions 601 - 800
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/05/27/leetcode-601-800/" class="article-date">
+	  <time datetime="2018-05-27T07:31:15.000Z" itemprop="datePublished">2018-05-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/05/27/leetcode-601-800/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>601 ~ 700</th>
+<th>701 ~ 800</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#604-compressed-string-iterator-easy">#604-compressed-string-iterator-easy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#625-minimun-factorization-medium">#625-minimun-factorization-medium</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#632-smallest-range-hard">#632-smallest-range-hard</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="604-compressed-string-iterator-easy"><a href="#604-compressed-string-iterator-easy" class="headerlink" title="#604-compressed-string-iterator-easy"></a>#604-compressed-string-iterator-easy</h4><p>Design and implement a data structure for a compressed string iterator. It should support the following operations: <code>next</code> and <code>hasNext</code>.</p>
+<p>The given compressed string will be in the form of each letter followed by a positive integer representing the number of this letter existing in the original uncompressed string.</p>
+<p><code>next()</code> - if the original string still has uncompressed characters, return the next letter; Otherwise return a white space.<br><code>hasNext()</code> - Judge whether there is any letter needs to be uncompressed.</p>
+<p><strong>Note:</strong><br>Please remember to <strong>RESET</strong> your class variables declared in StringIterator, as static/class variables are <strong>persisted across multiple test cases</strong>. Please see <a href="https://leetcode.com/faq/#different-output" target="_blank" rel="noopener">here</a> for more details.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">StringIterator iterator = new StringIterator(&quot;L1e2t1C1o1d1e1&quot;);</span><br><span class="line"></span><br><span class="line">iterator.next(); // return &apos;L&apos;</span><br><span class="line">iterator.next(); // return &apos;e&apos;</span><br><span class="line">iterator.next(); // return &apos;e&apos;</span><br><span class="line">iterator.next(); // return &apos;t&apos;</span><br><span class="line">iterator.next(); // return &apos;C&apos;</span><br><span class="line">iterator.next(); // return &apos;o&apos;</span><br><span class="line">iterator.next(); // return &apos;d&apos;</span><br><span class="line">iterator.hasNext(); // return true</span><br><span class="line">iterator.next(); // return &apos;e&apos;</span><br><span class="line">iterator.hasNext(); // return false</span><br><span class="line">iterator.next(); // return &apos; &apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringIterator</span> </span>&#123;</span><br><span class="line">    <span class="comment">// use int[2] save char, count</span></span><br><span class="line">    <span class="comment">// use queue</span></span><br><span class="line">    Queue&lt;<span class="keyword">int</span>[]&gt; queue;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">StringIterator</span><span class="params">(String compressedString)</span> </span>&#123;</span><br><span class="line">        queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> len = compressedString.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len;)&#123;</span><br><span class="line">            <span class="keyword">int</span>[] pair = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">            pair[<span class="number">0</span>] = compressedString.charAt(i);</span><br><span class="line">            <span class="keyword">int</span> j = i + <span class="number">1</span>;</span><br><span class="line">            <span class="comment">// num is before letters</span></span><br><span class="line">            String cnt = <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">while</span>(j&lt;len &amp;&amp; compressedString.charAt(j)&lt;<span class="string">'A'</span>)&#123;</span><br><span class="line">                cnt += compressedString.charAt(j);</span><br><span class="line">                j ++;</span><br><span class="line">            &#125;</span><br><span class="line">            pair[<span class="number">1</span>] = Integer.parseInt(cnt);</span><br><span class="line">            queue.offer(pair);</span><br><span class="line">            i = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">char</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(queue.isEmpty())</span><br><span class="line">            <span class="keyword">return</span> <span class="string">' '</span>;</span><br><span class="line">        <span class="keyword">int</span>[] pair = queue.peek();</span><br><span class="line">        <span class="keyword">if</span>(--pair[<span class="number">1</span>] == <span class="number">0</span>)</span><br><span class="line">            queue.poll();</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">char</span>) pair[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> !queue.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<h4 id="625-minimun-factorization-medium"><a href="#625-minimun-factorization-medium" class="headerlink" title="#625-minimun-factorization-medium"></a>#625-minimun-factorization-medium</h4><p>Given a positive integer <code>a</code>, find the smallest positive integer <code>b</code> whose multiplication of each digit equals to <code>a</code>. </p>
+<p>If there is no answer or the answer is not fit in 32-bit signed integer, then return 0.</p>
+<p><strong>Example 1</strong><br>Input:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">48</span><br></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">68</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">smallestFactorization</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a &lt; <span class="number">9</span>)</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    <span class="comment">// try larger first</span></span><br><span class="line">    <span class="keyword">long</span> result = <span class="number">0</span>, multi = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">9</span>; i&gt;=<span class="number">2</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">while</span>(a % i == <span class="number">0</span>)&#123;</span><br><span class="line">            a /= i;</span><br><span class="line">            result += multi * i;</span><br><span class="line">            <span class="keyword">if</span>(result &gt; Integer.MAX_VALUE)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            multi *= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(a != <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>) result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="632-smallest-range-hard"><a href="#632-smallest-range-hard" class="headerlink" title="#632-smallest-range-hard"></a>#632-smallest-range-hard</h4><p>You have <code>k</code> lists of sorted integers in ascending order. Find the <strong>smallest</strong> range that includes at least one number from each of the <code>k</code>lists. </p>
+<p>We define the range [a,b] is smaller than range [c,d] if <code>b-a &lt; d-c</code> or <code>a &lt; c</code> if <code>b-a == d-c</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input:[[4,10,15,24,26], [0,9,12,20], [5,18,22,30]]</span><br><span class="line">Output: [20,24]</span><br><span class="line">Explanation: </span><br><span class="line">List 1: [4, 10, 15, 24,26], 24 is in range [20,24].</span><br><span class="line">List 2: [0, 9, 12, 20], 20 is in range [20,24].</span><br><span class="line">List 3: [5, 18, 22, 30], 22 is in range [20,24].</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] smallestRange(List&lt;List&lt;Integer&gt;&gt; nums) &#123;</span><br><span class="line">    <span class="comment">// use heap similar to merge k sorted list</span></span><br><span class="line">    <span class="comment">// maintain a max, when poll a min, update result, offer its next</span></span><br><span class="line">    <span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.size() == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">// use int[3] save: &#123;row,idx,val&#125;</span></span><br><span class="line">    PriorityQueue&lt;<span class="keyword">int</span>[]&gt; heap = <span class="keyword">new</span> PriorityQueue&lt;&gt;(<span class="keyword">new</span> Comparator&lt;<span class="keyword">int</span>[]&gt;()&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">int</span>[] o1,<span class="keyword">int</span>[] o2)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> o1[<span class="number">2</span>] - o2[<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">int</span> min = Integer.MAX_VALUE, max = Integer.MIN_VALUE;</span><br><span class="line">    <span class="keyword">int</span> minRange = Integer.MAX_VALUE;</span><br><span class="line">    <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    <span class="comment">// init max and heap use first col</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> row=<span class="number">0</span>; row&lt;nums.size(); row++)&#123;</span><br><span class="line">        <span class="keyword">int</span> value = nums.get(row).get(<span class="number">0</span>);</span><br><span class="line">        max = Math.max(max,value);</span><br><span class="line">        heap.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;row,<span class="number">0</span>,value&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// start, condition: heap size </span></span><br><span class="line">    <span class="keyword">while</span>(heap.size() == nums.size())&#123;</span><br><span class="line">        <span class="keyword">int</span>[] curr = heap.poll();</span><br><span class="line">        <span class="comment">// update result</span></span><br><span class="line">        <span class="keyword">if</span>(max - curr[<span class="number">2</span>] &lt; minRange)&#123;</span><br><span class="line">            minRange = max - curr[<span class="number">2</span>];</span><br><span class="line">            result = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;curr[<span class="number">2</span>],max&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// offer min's next, update max</span></span><br><span class="line">        <span class="keyword">if</span>(curr[<span class="number">1</span>] + <span class="number">1</span> &lt; nums.get(curr[<span class="number">0</span>]).size())&#123;</span><br><span class="line">            <span class="keyword">int</span> next = nums.get(curr[<span class="number">0</span>]).get(curr[<span class="number">1</span>]+<span class="number">1</span>);</span><br><span class="line">            max = Math.max(max,next);</span><br><span class="line">            heap.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;curr[<span class="number">0</span>],curr[<span class="number">1</span>]+<span class="number">1</span>,next&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jliao011.github.io/2018/05/27/leetcode-601-800/" title="LeetCode Solutions 601 - 800" target="_blank" rel="external">https://jliao011.github.io/2018/05/27/leetcode-601-800/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">Jiafeng Liao</span><small class="ml-1x">New CS Grad</small></a></h3>
+        <div>If I wrote something wrong, please comment below, appreciate!</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/05/27/leetcode-401-600/" title="LeetCode Solutions 401 - 600"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/05/27/leetcode-801-1000/" title="LeetCode Solutions 801 - 1000"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="wechat,facebook,twitter" data-mobile-sites="wechat,facebook,twitter"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 Jiafeng Liao
+        
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+        	Powered by <a href="https://hexo.io">Hexo</a> || Theme - <a href="https://github.com/cofess/hexo-theme-pure">pure</a>
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://jliao011.github.io/2018/05/27/leetcode-601-800/';
+        
+        this.page.identifier = 'leetcode-601-800';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jliao011' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+    
+    
+        <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-119871741-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+
+</body>
+</html>

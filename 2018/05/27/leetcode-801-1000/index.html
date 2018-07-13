@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119871741-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-119871741-1');
+  </script>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> <!-- minimal-ui -->
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  <title>LeetCode Solutions 801 - 1000 | Jiafeng&#39;s Blog</title>
+  <meta name="description" content="801 ~ 900 901 ~ 1000     #809-expressive-word-medium    #814-binary-tree-pruning-medium    #817-linked-list-components-medium    #855-exam-room-medium    #856-score-of-parentheses-medium    #862-sh">
+<meta name="keywords" content="leetcode, computer science, sde, blog, jiafeng, liao, Jiafeng Liao">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode Solutions 801 - 1000">
+<meta property="og:url" content="https://jliao011.github.io/2018/05/27/leetcode-801-1000/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="801 ~ 900 901 ~ 1000     #809-expressive-word-medium    #814-binary-tree-pruning-medium    #817-linked-list-components-medium    #855-exam-room-medium    #856-score-of-parentheses-medium    #862-sh">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://s3-lc-upload.s3.amazonaws.com/users/cafebaby/image_1530657902.png">
+<meta property="og:updated_time" content="2018-07-13T05:32:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode Solutions 801 - 1000">
+<meta name="twitter:description" content="801 ~ 900 901 ~ 1000     #809-expressive-word-medium    #814-binary-tree-pruning-medium    #817-linked-list-components-medium    #855-exam-room-medium    #856-score-of-parentheses-medium    #862-sh">
+<meta name="twitter:image" content="https://s3-lc-upload.s3.amazonaws.com/users/cafebaby/image_1530657902.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://jliao011.github.io/2018/05/27/leetcode-801-1000/index.html">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+
+  
+  <meta name="google-site-verification" content="Q8ZJjFeuFLdQt5A3JEUX1a0PKcngzJNKeU2D5Y24yXA" />
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Jiafeng Liao</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">New CS Grad</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Dallas, TX</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav">
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>Welcome to my blog!</p><br/><p>Seeking full-time positions right now..</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/foundation/">foundation</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leetcode/">leetcode</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/project/">project</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-structure/">data structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deploy/">deploy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/heap/">heap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rest/">rest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">software</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sort/">sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/trie/">trie</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/data-structure/" style="font-size: 13px;">data structure</a> <a href="/tags/deploy/" style="font-size: 13.5px;">deploy</a> <a href="/tags/heap/" style="font-size: 13px;">heap</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/rest/" style="font-size: 13px;">rest</a> <a href="/tags/software/" style="font-size: 13px;">software</a> <a href="/tags/sort/" style="font-size: 13.5px;">sort</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/trie/" style="font-size: 13px;">trie</a> <a href="/tags/web/" style="font-size: 14px;">web</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/07/10/top-k-frequent-element/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/07/10/top-k-frequent-element/" class="title">Top K Frequent Element</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-07-10T21:13:23.000Z" itemprop="datePublished">2018-07-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/07/08/top-k/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/07/08/top-k/" class="title">Top k largest(smallest) in n elements</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-07-09T03:43:52.000Z" itemprop="datePublished">2018-07-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/25/gcd/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/algorithm/">algorithm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/25/gcd/" class="title">Greatest Common Divisor</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-25T07:59:52.000Z" itemprop="datePublished">2018-06-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/23/java-stack-vs-heap/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/java-stack-vs-heap/" class="title">Java Stack vs Heap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:29:46.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2018/06/23/url-flow/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/foundation/">foundation</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/06/23/url-flow/" class="title">What happens when you type an URL in the browser and press enter?</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-06-24T01:13:20.000Z" itemprop="datePublished">2018-06-23</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">Catalogue</h3>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#809-expressive-word-medium"><span class="toc-number">1.</span> <span class="toc-text">#809-expressive-word-medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#814-binary-tree-pruning-medium"><span class="toc-number">2.</span> <span class="toc-text">#814-binary-tree-pruning-medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#817-linked-list-components-medium"><span class="toc-number">3.</span> <span class="toc-text">#817-linked-list-components-medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#855-exam-room-medium"><span class="toc-number">4.</span> <span class="toc-text">#855-exam-room-medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#856-score-of-parentheses-medium"><span class="toc-number">5.</span> <span class="toc-text">#856-score-of-parentheses-medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#862-shortest-subarray-with-sum-at-least-k-hard"><span class="toc-number">6.</span> <span class="toc-text">#862-shortest-subarray-with-sum-at-least-k-hard</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#863-all-nodes-distance-k-in-binary-tree-medium"><span class="toc-number">7.</span> <span class="toc-text">#863-all-nodes-distance-k-in-binary-tree-medium</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#864-random-pick-with-blacklist-hard"><span class="toc-number">8.</span> <span class="toc-text">#864-random-pick-with-blacklist-hard</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-leetcode-801-1000" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode Solutions 801 - 1000
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/05/27/leetcode-801-1000/" class="article-date">
+	  <time datetime="2018-05-27T07:31:15.000Z" itemprop="datePublished">2018-05-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/leetcode/">leetcode</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/05/27/leetcode-801-1000/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>801 ~ 900</th>
+<th>901 ~ 1000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#809-expressive-word-medium">#809-expressive-word-medium</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#814-binary-tree-pruning-medium">#814-binary-tree-pruning-medium</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#817-linked-list-components-medium">#817-linked-list-components-medium</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#855-exam-room-medium">#855-exam-room-medium</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#856-score-of-parentheses-medium">#856-score-of-parentheses-medium</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#862-shortest-subarray-with-sum-at-least-k-hard">#862-shortest-subarray-with-sum-at-least-k-hard</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#863-all-nodes-distance-k-in-binary-tree-medium">#863-all-nodes-distance-k-in-binary-tree-medium</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#864-random-pick-with-blacklist-hard">#864-random-pick-with-blacklist-hard</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="809-expressive-word-medium"><a href="#809-expressive-word-medium" class="headerlink" title="#809-expressive-word-medium"></a>#809-expressive-word-medium</h4><p>Sometimes people repeat letters to represent extra feeling, such as “hello” -&gt; “heeellooo”, “hi” -&gt; “hiiii”.  Here, we have groups, of adjacent letters that are all the same character, and adjacent characters to the group are different.  A group is extended if that group is length 3 or more, so “e” and “o” would be extended in the first example, and “i” would be extended in the second example.  As another example, the groups of “abbcccaaaa” would be “a”, “bb”, “ccc”, and “aaaa”; and “ccc” and “aaaa” are the extended groups of that string.</p>
+<p>For some given string S, a query word is <em>stretchy</em> if it can be made to be equal to S by extending some groups.  Formally, we are allowed to repeatedly choose a group (as defined above) of characters <code>c</code>, and add some number of the same character <code>c</code> to it so that the length of the group is 3 or more.  Note that we cannot extend a group of size one like “h” to a group of size two like “hh” - all extensions must leave the group extended - ie., at least 3 characters long.</p>
+<p>Given a list of query words, return the number of words that are stretchy. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Example:</span><br><span class="line">Input: </span><br><span class="line">S = &quot;heeellooo&quot;</span><br><span class="line">words = [&quot;hello&quot;, &quot;hi&quot;, &quot;helo&quot;]</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: </span><br><span class="line">We can extend &quot;e&quot; and &quot;o&quot; in the word &quot;hello&quot; to get &quot;heeellooo&quot;.</span><br><span class="line">We can&apos;t extend &quot;helo&quot; to get &quot;heeellooo&quot; because the group &quot;ll&quot; is not extended.</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">expressiveWords</span><span class="params">(String S, String[] words)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S==<span class="keyword">null</span> || S.length()==<span class="number">0</span> || words==<span class="keyword">null</span> || words.length==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(String word : words)&#123;</span><br><span class="line">        <span class="comment">// i for S &lt;= j for word</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; S.length())&#123;</span><br><span class="line">            <span class="comment">// S.char == word.char, keep going</span></span><br><span class="line">            <span class="keyword">if</span>(j&lt;word.length() &amp;&amp; S.charAt(i)==word.charAt(j))&#123;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            <span class="comment">// check S.char is extend?</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; S.charAt(i)==S.charAt(i-<span class="number">1</span>) &amp;&amp; </span><br><span class="line">                    i&lt;S.length()-<span class="number">1</span> &amp;&amp; S.charAt(i)==S.charAt(i+<span class="number">1</span>))&#123; </span><br><span class="line">                    i += <span class="number">2</span>;</span><br><span class="line">            <span class="comment">// check S when j reach word tail</span></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i&gt;<span class="number">1</span> &amp;&amp; S.charAt(i)==S.charAt(i-<span class="number">1</span>) &amp;&amp; S.charAt(i)==S.charAt(i-<span class="number">2</span>))&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(i==S.length() &amp;&amp; j==word.length())</span><br><span class="line">                count++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="814-binary-tree-pruning-medium"><a href="#814-binary-tree-pruning-medium" class="headerlink" title="#814-binary-tree-pruning-medium"></a>#814-binary-tree-pruning-medium</h4><p>We are given the head node <code>root</code> of a binary tree, where additionally every node’s value is either a 0 or a 1.</p>
+<p>Return the same tree where every subtree (of the given tree) not containing a 1 has been removed.</p>
+<p>(Recall that the subtree of a node X is X, plus every node that is a descendant of X.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> TreeNode <span class="title">pruneTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// can use no helper</span></span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    root.left = pruneTree(root.left);</span><br><span class="line">    root.right = pruneTree(root.right);</span><br><span class="line">    <span class="comment">// post order</span></span><br><span class="line">    <span class="keyword">if</span>(root.left==<span class="keyword">null</span> &amp;&amp; root.right==<span class="keyword">null</span> &amp;&amp; root.val==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="817-linked-list-components-medium"><a href="#817-linked-list-components-medium" class="headerlink" title="#817-linked-list-components-medium"></a>#817-linked-list-components-medium</h4><p>We are given <code>head</code>, the head node of a linked list containing <strong>unique integer values</strong>.</p>
+<p>We are also given the list <code>G</code>, a subset of the values in the linked list.</p>
+<p>Return the number of connected components in <code>G</code>, where two values are connected if they appear consecutively in the linked list.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">head: 0-&gt;1-&gt;2-&gt;3</span><br><span class="line">G = [0, 1, 3]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: </span><br><span class="line">0 and 1 are connected, so [0, 1] and [3] are the two connected components.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: </span><br><span class="line">head: 0-&gt;1-&gt;2-&gt;3-&gt;4</span><br><span class="line">G = [0, 3, 1, 4]</span><br><span class="line">Output: 2</span><br><span class="line">Explanation: </span><br><span class="line">0 and 1 are connected, 3 and 4 are connected, so [0, 1] and [3, 4] are the two connected components.</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong> </p>
+<ul>
+<li>If <code>N</code> is the length of the linked list given by <code>head</code>, <code>1 &lt;= N &lt;= 10000</code>.</li>
+<li>The value of each node in the linked list will be in the range<code>[0, N - 1]</code>.</li>
+<li><code>1 &lt;= G.length &lt;= 10000</code>.</li>
+<li><code>G</code> is a subset of all values in the linked list.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numComponents</span><span class="params">(ListNode head, <span class="keyword">int</span>[] G)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// use set, count tail of components</span></span><br><span class="line">    Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> num : G)</span><br><span class="line">        set.add(num);</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="comment">// if contains curr:</span></span><br><span class="line">        <span class="comment">// 1. this is end</span></span><br><span class="line">        <span class="comment">// 2. not contain next (tail)</span></span><br><span class="line">        <span class="keyword">if</span>(set.contains(head.val) &amp;&amp; </span><br><span class="line">           (head.next==<span class="keyword">null</span> || !set.contains(head.next.val)))</span><br><span class="line">            count ++;</span><br><span class="line">        head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="855-exam-room-medium"><a href="#855-exam-room-medium" class="headerlink" title="#855-exam-room-medium"></a>#855-exam-room-medium</h4><p>In an exam room, there are <code>N</code> seats in a single row, numbered <code>0, 1, 2, ..., N-1</code>.</p>
+<p>When a student enters the room, they must sit in the seat that maximizes the distance to the closest person.  If there are multiple such seats, they sit in the seat with the lowest number.  (Also, if no one is in the room, then the student sits at seat number 0.)</p>
+<p>Return a class <code>ExamRoom(int N)</code> that exposes two functions: <code>ExamRoom.seat()</code> returning an <code>int</code> representing what seat the student sat in, and <code>ExamRoom.leave(int p)</code> representing that the student in seat number <code>p</code> now leaves the room.  It is guaranteed that any calls to <code>ExamRoom.leave(p)</code> have a student sitting in seat <code>p</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input: [&quot;ExamRoom&quot;,&quot;seat&quot;,&quot;seat&quot;,&quot;seat&quot;,&quot;seat&quot;,&quot;leave&quot;,&quot;seat&quot;], [[10],[],[],[],[],[4],[]]</span><br><span class="line">Output: [null,0,9,4,2,null,5]</span><br><span class="line">Explanation:</span><br><span class="line">ExamRoom(10) -&gt; null</span><br><span class="line">seat() -&gt; 0, no one is in the room, then the student sits at seat number 0.</span><br><span class="line">seat() -&gt; 9, the student sits at the last seat number 9.</span><br><span class="line">seat() -&gt; 4, the student sits at the last seat number 4.</span><br><span class="line">seat() -&gt; 2, the student sits at the last seat number 2.</span><br><span class="line">leave(4) -&gt; null</span><br><span class="line">seat() -&gt; 5, the student sits at the last seat number 5.</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExamRoom</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    TreeSet&lt;Integer&gt; set;</span><br><span class="line">    <span class="comment">// use TreeSet to maintain increasing idx</span></span><br><span class="line">    <span class="comment">// idx = left + maxDist / 2;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ExamRoom</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.N = N;</span><br><span class="line">        <span class="keyword">this</span>.set = <span class="keyword">new</span> TreeSet&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">seat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// this way handles seat at 0</span></span><br><span class="line">        <span class="keyword">if</span>(set.size() &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> maxDist = set.first(); <span class="comment">// deal with first interval</span></span><br><span class="line">            <span class="keyword">int</span> prev = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> student : set)&#123; <span class="comment">// iteration in order</span></span><br><span class="line">                <span class="keyword">if</span>(prev != -<span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="keyword">int</span> dist = (student - prev) / <span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">if</span>(dist &gt; maxDist)&#123;</span><br><span class="line">                        maxDist = dist;</span><br><span class="line">                        idx = prev + maxDist;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                prev = student;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// deal with last interval</span></span><br><span class="line">            <span class="keyword">if</span>(N - <span class="number">1</span> - set.last() &gt; maxDist)</span><br><span class="line">                idx = N - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        set.add(idx);</span><br><span class="line">        <span class="keyword">return</span> idx;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">leave</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">        set.remove(p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="856-score-of-parentheses-medium"><a href="#856-score-of-parentheses-medium" class="headerlink" title="#856-score-of-parentheses-medium"></a>#856-score-of-parentheses-medium</h4><p>Given a balanced parentheses string <code>S</code>, compute the score of the string based on the following rule:</p>
+<ul>
+<li><p><code>()</code> has score 1</p>
+</li>
+<li><p><code>AB</code> has score <code>A + B</code>, where A and B are balanced parentheses strings.</p>
+</li>
+<li><p><code>(A)</code> has score <code>2 * A</code>, where A is a balanced parentheses string.</p>
+</li>
+<li><p><strong>Example 4:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;(()(()))&quot;</span><br><span class="line">Output: 6</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">scoreOfParentheses</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// assume S is balanced</span></span><br><span class="line">    <span class="keyword">if</span>(S==<span class="keyword">null</span> || S.length()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">char</span> c : S.toCharArray())&#123;</span><br><span class="line">        <span class="keyword">if</span>(c == <span class="string">'('</span>)</span><br><span class="line">            <span class="comment">// use 0 mark (</span></span><br><span class="line">            stack.push(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">// sum in same level</span></span><br><span class="line">             <span class="keyword">while</span>(stack.peek()!=<span class="number">0</span>) </span><br><span class="line">                 temp += stack.pop();</span><br><span class="line">            stack.pop();    <span class="comment">// pop the 0</span></span><br><span class="line">            <span class="comment">// if temp is 0, push 1, else push 2*temp</span></span><br><span class="line">            stack.push(Math.max(<span class="number">2</span>*temp,<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 0 level sum</span></span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!stack.isEmpty())</span><br><span class="line">        result += stack.pop();</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>space O(1): maintain level</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">scoreOfParentheses</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> level = <span class="number">0</span>, result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;S.length(); ++i)&#123;</span><br><span class="line">        <span class="comment">// maintain level</span></span><br><span class="line">        level += S.charAt(i)==<span class="string">'('</span> ? <span class="number">1</span>:-<span class="number">1</span>;</span><br><span class="line">        <span class="comment">// add when find (), only () could add to result</span></span><br><span class="line">        <span class="keyword">if</span>(S.charAt(i) == <span class="string">'('</span> &amp;&amp; S.charAt(i+<span class="number">1</span>) == <span class="string">')'</span>)</span><br><span class="line">            result += <span class="number">1</span> &lt;&lt; (level-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="862-shortest-subarray-with-sum-at-least-k-hard"><a href="#862-shortest-subarray-with-sum-at-least-k-hard" class="headerlink" title="#862-shortest-subarray-with-sum-at-least-k-hard"></a>#862-shortest-subarray-with-sum-at-least-k-hard</h4><p>Return the <strong>length</strong> of the shortest, non-empty, contiguous subarray of <code>A</code> with sum at least <code>K</code>.</p>
+<p>If there is no non-empty subarray with sum at least <code>K</code>, return <code>-1</code>.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: A = [1], K = 1</span><br><span class="line">Output: 1</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: A = [1,2], K = 4</span><br><span class="line">Output: -1</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: A = [2,-1,2], K = 3</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">shortestSubarray</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(A == <span class="keyword">null</span> || A.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span>[] sums = <span class="keyword">new</span> <span class="keyword">int</span>[A.length + <span class="number">1</span>];</span><br><span class="line">    <span class="comment">// accumulated array</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;A.length; ++i)</span><br><span class="line">        sums[i+<span class="number">1</span>] = sums[i] + A[i];</span><br><span class="line">    <span class="keyword">int</span> minLen = A.length + <span class="number">1</span>;</span><br><span class="line">    Deque&lt;Integer&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sums.length; ++i)&#123;</span><br><span class="line">        <span class="comment">// sliding window, if only increasing then this case</span></span><br><span class="line">        <span class="keyword">while</span>(!deque.isEmpty() &amp;&amp; sums[i] - sums[deque.peekFirst()] &gt;= K)</span><br><span class="line">            minLen = Math.min(minLen,i - deque.pollFirst());</span><br><span class="line">        <span class="comment">// if i+1 negative value in A, sums will decrease at i</span></span><br><span class="line">        <span class="comment">// keep the deque increasing </span></span><br><span class="line">        <span class="comment">// smaller sum with larger idx could be result instead of large sum with small idx</span></span><br><span class="line">        <span class="keyword">while</span>(!deque.isEmpty() &amp;&amp; sums[i] &lt;= sums[deque.peekLast()])</span><br><span class="line">            deque.pollLast();</span><br><span class="line">        deque.offerLast(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minLen &gt; A.length ? -<span class="number">1</span> : minLen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="863-all-nodes-distance-k-in-binary-tree-medium"><a href="#863-all-nodes-distance-k-in-binary-tree-medium" class="headerlink" title="#863-all-nodes-distance-k-in-binary-tree-medium"></a>#863-all-nodes-distance-k-in-binary-tree-medium</h4><p>We are given a binary tree (with root node <code>root</code>), a <code>target</code> node, and an integer value <code>K</code>.</p>
+<p>Return a list of the values of all nodes that have a distance <code>K</code> from the <code>target</code> node.  The answer can be returned in any order.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input: root = [3,5,1,6,2,0,8,null,null,7,4], target = 5, K = 2</span><br><span class="line">Output: [7,4,1]</span><br><span class="line">Explanation: </span><br><span class="line">The nodes that are a distance 2 from the target node (with value 5)</span><br><span class="line">have values 7, 4, and 1.</span><br><span class="line"></span><br><span class="line">Note that the inputs &quot;root&quot; and &quot;target&quot; are actually TreeNodes.</span><br><span class="line">The descriptions of the inputs above are just serializations of these objects.</span><br></pre></td></tr></table></figure>
+<p><strong>Note:</strong></p>
+<ol>
+<li>The given tree is non-empty.</li>
+<li>Each node in the tree has unique values <code>0 &lt;= node.val &lt;= 500</code>.</li>
+<li>The <code>target</code> node is a node in the tree.</li>
+<li><code>0 &lt;= K &lt;= 1000</code>.</li>
+</ol>
+<p><a href="https://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/" target="_blank" rel="noopener">geeks for geeks reference</a></p>
+<p><strong>Undirected graph bfs:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">distanceK</span><span class="params">(TreeNode root, TreeNode target, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// use BFS, treat as undirected graph</span></span><br><span class="line">    <span class="comment">// nei of a node: left, right, parent</span></span><br><span class="line">    List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span> || target == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    <span class="comment">// build parentMap</span></span><br><span class="line">    Map&lt;TreeNode,TreeNode&gt; parentMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    findParent(root,<span class="keyword">null</span>,parentMap);</span><br><span class="line">    <span class="comment">// init bfs</span></span><br><span class="line">    Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    Set&lt;TreeNode&gt; visited = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">    queue.offer(target);</span><br><span class="line">    <span class="keyword">int</span> dist = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">        <span class="keyword">if</span>(dist == K)&#123;</span><br><span class="line">            <span class="keyword">while</span>(!queue.isEmpty())</span><br><span class="line">                result.add(queue.poll().val);</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// level order</span></span><br><span class="line">        <span class="keyword">int</span> size = queue.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; ++i)&#123;</span><br><span class="line">            TreeNode curr = queue.poll();</span><br><span class="line">            visited.add(curr);</span><br><span class="line">            <span class="comment">// add left, right, parent</span></span><br><span class="line">            <span class="keyword">if</span>(curr.left != <span class="keyword">null</span> &amp;&amp; !visited.contains(curr.left))</span><br><span class="line">                queue.offer(curr.left);</span><br><span class="line">            <span class="keyword">if</span>(curr.right != <span class="keyword">null</span> &amp;&amp; !visited.contains(curr.right))</span><br><span class="line">                queue.offer(curr.right);</span><br><span class="line">            TreeNode parent = parentMap.get(curr);</span><br><span class="line">            <span class="keyword">if</span>(parent != <span class="keyword">null</span> &amp;&amp; !visited.contains(parent))</span><br><span class="line">                queue.offer(parent);</span><br><span class="line">        &#125;</span><br><span class="line">        dist ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">findParent</span><span class="params">(TreeNode root,TreeNode parent,Map&lt;TreeNode,TreeNode&gt; parentMap)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">// child -&gt; parent</span></span><br><span class="line">    <span class="keyword">if</span>(parent != <span class="keyword">null</span>)</span><br><span class="line">        parentMap.put(root,parent);</span><br><span class="line">    findParent(root.left,root,parentMap);</span><br><span class="line">    findParent(root.right,root,parentMap);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>DFS consider subtree and ancestor:</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">distanceK</span><span class="params">(TreeNode root, TreeNode target, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// dfs 2 cases:</span></span><br><span class="line">    <span class="comment">// first: subtree of target node</span></span><br><span class="line">    <span class="comment">// second: ancestor or other subtree</span></span><br><span class="line">    List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    getDist(root,target,K,result);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for first case, no target found return -1, </span></span><br><span class="line"><span class="comment">// return 0 when find target, then backtrack increase dist</span></span><br><span class="line"><span class="comment">// backward get K, or search in the other subtree </span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getDist</span><span class="params">(TreeNode root,TreeNode target,<span class="keyword">int</span> K,List&lt;Integer&gt; result)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(root == target)&#123;</span><br><span class="line">        <span class="comment">// search subtree then search second case</span></span><br><span class="line">        findSubTree(root,K,result);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> leftDist = getDist(root.left,target,K,result);</span><br><span class="line">    <span class="comment">// target in left subtree</span></span><br><span class="line">    <span class="keyword">if</span>(leftDist != -<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(leftDist + <span class="number">1</span> == K)</span><br><span class="line">            result.add(root.val);</span><br><span class="line">        <span class="keyword">else</span>    <span class="comment">// search right subtree</span></span><br><span class="line">            findSubTree(root.right,K-<span class="number">2</span>-leftDist,result);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + leftDist;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> rightDist = getDist(root.right,target,K,result);</span><br><span class="line">    <span class="keyword">if</span>(rightDist != -<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(rightDist + <span class="number">1</span> == K)</span><br><span class="line">            result.add(root.val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            findSubTree(root.left,K-<span class="number">2</span>-rightDist,result);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + rightDist;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for case search in target subtree</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">findSubTree</span><span class="params">(TreeNode root,<span class="keyword">int</span> K,List&lt;Integer&gt; result)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span>(K == <span class="number">0</span>)&#123;</span><br><span class="line">        result.add(root.val);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    findSubTree(root.left,K-<span class="number">1</span>,result);</span><br><span class="line">    findSubTree(root.right,K-<span class="number">1</span>,result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="864-random-pick-with-blacklist-hard"><a href="#864-random-pick-with-blacklist-hard" class="headerlink" title="#864-random-pick-with-blacklist-hard"></a>#864-random-pick-with-blacklist-hard</h4><p>Given a blacklist <code>B</code> containing unique integers from <code>[0, N)</code>, write a function to return a uniform random integer from <code>[0, N)</code> which is <strong>NOT</strong> in <code>B</code>.</p>
+<p>Optimize it such that it minimizes the call to system’s <code>Math.random()</code>.</p>
+<p><strong>Note:</strong></p>
+<ol>
+<li><code>1 &lt;= N &lt;= 1000000000</code></li>
+<li><code>0 &lt;= B.length &lt; min(100000, N)</code></li>
+<li><code>[0, N)</code> does NOT include N. See <a href="https://en.wikipedia.org/wiki/Interval_(mathematics" target="_blank" rel="noopener">interval notation</a>).</li>
+</ol>
+<p><img src="https://s3-lc-upload.s3.amazonaws.com/users/cafebaby/image_1530657902.png" alt="image"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    Map&lt;Integer,Integer&gt; map;</span><br><span class="line">    Set&lt;Integer&gt; blackSet;</span><br><span class="line">    Random random;</span><br><span class="line">    <span class="keyword">int</span> range;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">(<span class="keyword">int</span> N, <span class="keyword">int</span>[] blacklist)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// B black num, N total, N-B valid</span></span><br><span class="line">        <span class="comment">// map black num [0,N-B] to valid num  [N-B,N]</span></span><br><span class="line">        <span class="comment">// [0,N-B)[N-B,N)</span></span><br><span class="line">        <span class="keyword">this</span>.blackSet = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">this</span>.map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">this</span>.random = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> B = blacklist.length;</span><br><span class="line">        <span class="comment">// save black num after N-B</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : blacklist)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num &gt;= N-B)</span><br><span class="line">                blackSet.add(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> val = N - B;</span><br><span class="line">        <span class="comment">// map black num before N-B</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> num : blacklist)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num &lt; N - B)&#123;</span><br><span class="line">                <span class="keyword">while</span>(blackSet.contains(val))</span><br><span class="line">                    val ++;</span><br><span class="line">                map.put(num,val++);<span class="comment">// notice ++</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.range = N - B;   </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pick</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> key = <span class="keyword">this</span>.random.nextInt(range);</span><br><span class="line">        <span class="comment">// if contains in black map, return val</span></span><br><span class="line">        <span class="comment">// otherwise valid, return directly</span></span><br><span class="line">        <span class="keyword">return</span> map.getOrDefault(key,key);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jliao011.github.io/2018/05/27/leetcode-801-1000/" title="LeetCode Solutions 801 - 1000" target="_blank" rel="external">https://jliao011.github.io/2018/05/27/leetcode-801-1000/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">Jiafeng Liao</span><small class="ml-1x">New CS Grad</small></a></h3>
+        <div>If I wrote something wrong, please comment below, appreciate!</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2018/05/27/leetcode-601-800/" title="LeetCode Solutions 601 - 800"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2018/05/27/leetcode-201-400/" title="LeetCode Solutions 201 - 400"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="Catalogue" role="button">
+        <span>[&nbsp;</span><span>Catalogue</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="wechat,facebook,twitter" data-mobile-sites="wechat,facebook,twitter"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/jliao011" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://www.linkedin.com/in/jiafengliao" target="_blank" title="Linkedin" data-toggle=tooltip data-placement=top><i class="icon icon-linkedin"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2018 Jiafeng Liao
+        
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+        	Powered by <a href="https://hexo.io">Hexo</a> || Theme - <a href="https://github.com/cofess/hexo-theme-pure">pure</a>
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://jliao011.github.io/2018/05/27/leetcode-801-1000/';
+        
+        this.page.identifier = 'leetcode-801-1000';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jliao011' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+    
+    
+        <script defer type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-119871741-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+
+</body>
+</html>
