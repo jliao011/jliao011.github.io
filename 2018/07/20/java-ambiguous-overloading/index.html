@@ -25,20 +25,23 @@
   <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
   <meta http-equiv="window-target" content="_top" />
   
-  <title>Archive: 2018/6 | Jiafeng&#39;s Blog</title>
-  <meta name="description" content="Jiafeng Liao&apos;s Blog">
-<meta name="keywords" content="leetcode, computer science, sde, blog, jiafeng, liao, Jiafeng Liao">
-<meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="https://jliao011.github.io/archives/2018/06/index.html">
+  <title>How is ambiguous overloaded method call resolved in java? | Jiafeng&#39;s Blog</title>
+  <meta name="description" content="Source: http://javabypatel.blogspot.com/2016/05/ambiguous-method-overloading.html 123456789public static void print(Object object)&amp;#123;    System.out.println(&quot;Object&quot;);&amp;#125;public static void print(">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How is ambiguous overloaded method call resolved in java?">
+<meta property="og:url" content="https://jliao011.github.io/2018/07/20/java-ambiguous-overloading/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Jiafeng Liao&apos;s Blog">
+<meta property="og:description" content="Source: http://javabypatel.blogspot.com/2016/05/ambiguous-method-overloading.html 123456789public static void print(Object object)&amp;#123;    System.out.println(&quot;Object&quot;);&amp;#125;public static void print(">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://jliao011.github.io/var/folders/bw/jk8c_r_s5_3c27rk9tf5t29c0000gn/T/abnerworks.Typora/image-20180720183430756.png">
+<meta property="og:updated_time" content="2018-07-20T23:35:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
-<meta name="twitter:description" content="Jiafeng Liao&apos;s Blog">
+<meta name="twitter:title" content="How is ambiguous overloaded method call resolved in java?">
+<meta name="twitter:description" content="Source: http://javabypatel.blogspot.com/2016/05/ambiguous-method-overloading.html 123456789public static void print(Object object)&amp;#123;    System.out.println(&quot;Object&quot;);&amp;#125;public static void print(">
+<meta name="twitter:image" content="https://jliao011.github.io/var/folders/bw/jk8c_r_s5_3c27rk9tf5t29c0000gn/T/abnerworks.Typora/image-20180720183430756.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://jliao011.github.io/archives/2018/06/index.html">
+  <link rel="canonical" href="https://jliao011.github.io/2018/07/20/java-ambiguous-overloading/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -386,128 +389,129 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">Archive: 2018/6</h1>
-	      <p class="text-muted">Total 9 articles</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-java-ambiguous-overloading" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      How is ambiguous overloaded method call resolved in java?
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2018" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2018
-            </a>
-            <!-- <a href="/archives/2018" class="archive-year">2018</a> -->
-          </h3>
-        </div>
-        <div id="collapse2018" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2018">
-        <div class="panel-body">
-          <div class="collection">
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/07/20/java-ambiguous-overloading/" class="article-date">
+	  <time datetime="2018-07-20T23:28:47.000Z" itemprop="datePublished">2018-07-20</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/foundation/">foundation</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/java/">java</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/07/20/java-ambiguous-overloading/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <p>Source: <a href="http://javabypatel.blogspot.com/2016/05/ambiguous-method-overloading.html" target="_blank" rel="noopener">http://javabypatel.blogspot.com/2016/05/ambiguous-method-overloading.html</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Object object)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"Object"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(String string)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"String"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    print(<span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/var/folders/bw/jk8c_r_s5_3c27rk9tf5t29c0000gn/T/abnerworks.Typora/image-20180720183430756.png" alt="image-20180720183430756"></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <!-- <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
     
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://jliao011.github.io/2018/07/20/java-ambiguous-overloading/" title="How is ambiguous overloaded method call resolved in java?" target="_blank" rel="external">https://jliao011.github.io/2018/07/20/java-ambiguous-overloading/</a>
+    </li>
     
-<a href="/2018/06/25/gcd/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-25T07:59:52.000Z" itemprop="datePublished">2018-06-25</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Greatest Common Divisor
-</a>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote> -->
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="" target="_blank"><span class="text-dark">Jiafeng Liao</span><small class="ml-1x">New CS Grad</small></a></h3>
+        <div>If I wrote something wrong, please comment below, appreciate!</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+       
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+  </section>
 
 
   
-    
-    
-    
-<a href="/2018/06/23/java-stack-vs-heap/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-24T01:29:46.000Z" itemprop="datePublished">2018-06-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Java Stack vs Heap
-</a>
+</div>
 
-
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
+  <ul class="pager pull-left">
     
     
-    
-<a href="/2018/06/23/url-flow/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-24T01:13:20.000Z" itemprop="datePublished">2018-06-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> What happens when you type an URL in the browser and press enter?
-</a>
-
-
-  
+    <li class="next">
+      <a href="/2018/07/10/top-k-frequent-element/" title="Top K Frequent Element"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
-    
-<a href="/2018/06/23/sorting/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-23T08:02:38.000Z" itemprop="datePublished">2018-06-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Sorting Algorithms
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/12/trie/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-12T07:27:22.000Z" itemprop="datePublished">2018-06-12</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Implementation of Trie
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/04/software-ilities/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-04T09:31:54.000Z" itemprop="datePublished">2018-06-04</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> The 7 Software “-ilities” You Need To Know
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/04/restful-web-service/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-04T09:03:59.000Z" itemprop="datePublished">2018-06-04</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Restful Web Service Related
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/02/hexo-usage/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-02T23:38:03.000Z" itemprop="datePublished">2018-06-02</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Hexo Blog Usage
-</a>
-
-
-  
-    
-    
-    
-<a href="/2018/06/02/flight-gateway/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-06-02T22:31:15.000Z" itemprop="datePublished">2018-06-02</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Flight GateWay Spring Boot App
-</a>
-
-
+  </ul>
   
   
-    </div></div></div></section>
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="wechat,facebook,twitter" data-mobile-sites="wechat,facebook,twitter"></div>
+    
+  </div>
+  </div>
+</nav>
   
 
-	    </div>
-  	</article>
-  	 	
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -561,6 +565,29 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
     
     
+        
+
+
+    
+    
+        
+    
+    <script defer>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://jliao011.github.io/2018/07/20/java-ambiguous-overloading/';
+        
+        this.page.identifier = 'java-ambiguous-overloading';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'jliao011' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
     
     
         <script defer type="text/javascript">
