@@ -35,7 +35,7 @@
 <meta property="og:description" content="201 ~ 300 301 ~ 400     #201-bitwise-and-of-numbers-range-medium    #204-count-primes-easy    #207-course-schedule-medium    #210-course-schedule-ii-medium    #211-add-and-search-word-medium     #3">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://leetcode.com/static/images/problemset/rectangle_area.png">
-<meta property="og:updated_time" content="2018-07-23T19:10:56.000Z">
+<meta property="og:updated_time" content="2018-07-23T20:58:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode Solutions 201 - 400">
 <meta name="twitter:description" content="201 ~ 300 301 ~ 400     #201-bitwise-and-of-numbers-range-medium    #204-count-primes-easy    #207-course-schedule-medium    #210-course-schedule-ii-medium    #211-add-and-search-word-medium     #3">
@@ -555,6 +555,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="#269-alien-dictionary-hard">#269-alien-dictionary-hard</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="#271-encode-and-decode-strings-medium">#271-encode-and-decode-strings-medium</a></td>
 <td><strong><a href="#371-sum-of-two-integers-easy">#371-sum-of-two-integers-easy</a></strong></td>
 </tr>
@@ -849,7 +853,7 @@
 <p>Given <em>nums</em> = <code>[1, -1, 5, -2, 3]</code>, <em>k</em> = <code>3</code>,<br>return <code>4</code>. (because the subarray <code>[1, -1, 5, -2]</code> sums to 3 and is the longest)</p>
 <p><strong>Example 2:</strong></p>
 <p>Given <em>nums</em> = <code>[-2, -1, 2, 1]</code>, <em>k</em> = <code>1</code>,<br>return <code>2</code>. (because the subarray <code>[-1, 2]</code> sums to 1 and is the longest)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArrayLen</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums==<span class="keyword">null</span> || nums.length==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, maxLen = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">        sum += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(sum == k)</span><br><span class="line">            maxLen = i + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(map.containsKey(sum - k))</span><br><span class="line">            maxLen = Math.max(maxLen,i-map.get(sum-k));</span><br><span class="line">        <span class="keyword">if</span>(!map.containsKey(sum))</span><br><span class="line">            map.put(sum,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxLen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSubArrayLen</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums == <span class="keyword">null</span> || nums.length == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> maxLen = <span class="number">0</span>, sum = <span class="number">0</span>;</span><br><span class="line">    Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="number">0</span>,-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">        sum += nums[i];</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(sum - k))</span><br><span class="line">            maxLen = Math.max(maxLen,i-map.get(sum-k));</span><br><span class="line">        <span class="keyword">if</span>(!map.containsKey(sum))</span><br><span class="line">            map.put(sum,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxLen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <hr>
 <h4 id="335-self-crossing-hard"><a href="#335-self-crossing-hard" class="headerlink" title="#335-self-crossing-hard"></a>#335-self-crossing-hard</h4><p>You are given an array <em>x</em> of <code>n</code> positive numbers. You start at point <code>(0,0)</code> and moves <code>x[0]</code> metres to the north, then <code>x[1]</code> metres to the west, <code>x[2]</code> metres to the south, <code>x[3]</code> metres to the east and so on. In other words, after each move your direction changes counter-clockwise.</p>
@@ -979,7 +983,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2018/05/27/leetcode-801-1000/" title="LeetCode Solutions 801 - 1000"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2018/05/27/leetcode-401-600/" title="LeetCode Solutions 401 - 600"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
